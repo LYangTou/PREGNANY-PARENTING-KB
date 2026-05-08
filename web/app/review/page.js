@@ -20,7 +20,13 @@ async function api(path, init) {
       ...(init?.headers || {})
     }
   });
-  const payload = await response.json();
+  const text = await response.text();
+  let payload = {};
+  try {
+    payload = text ? JSON.parse(text) : {};
+  } catch {
+    throw new Error(`API ${response.status}: expected JSON, got ${text.slice(0, 80)}`);
+  }
   if (!response.ok) {
     const details = Array.isArray(payload.details) && payload.details.length ? `\n${payload.details.join("\n")}` : "";
     throw new Error(`${payload.error || "请求失败"}${details}`);

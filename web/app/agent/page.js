@@ -96,7 +96,13 @@ function MarkdownRenderer({ content }) {
 
 async function loadStatus() {
   const response = await fetch("/api/status", { cache: "no-store" });
-  const payload = await response.json();
+  const text = await response.text();
+  let payload = {};
+  try {
+    payload = text ? JSON.parse(text) : {};
+  } catch {
+    throw new Error(`API ${response.status}: expected JSON, got ${text.slice(0, 80)}`);
+  }
   if (!response.ok) throw new Error(payload.error || "加载状态失败");
   return payload;
 }
@@ -176,7 +182,13 @@ export default function AgentPage() {
       });
 
       if (!response.ok || !response.body) {
-        const payload = await response.json();
+        const text = await response.text();
+        let payload = {};
+        try {
+          payload = text ? JSON.parse(text) : {};
+        } catch {
+          throw new Error(`API ${response.status}: expected JSON, got ${text.slice(0, 80)}`);
+        }
         throw new Error(payload.error || "Agent 请求失败");
       }
 
