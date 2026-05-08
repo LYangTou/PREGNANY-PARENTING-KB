@@ -1,0 +1,21 @@
+{
+  "name": "pregnancy-parenting-kb",
+  "version": "0.1.0",
+  "private": true,
+  "description": "家庭孕育知识库本地工具",
+  "scripts": {
+    "kb": "node scripts/run.js kb-workflow",
+    "validate:sources": "node scripts/run.js validate-sources",
+    "validate:cards": "node scripts/run.js validate-cards",
+    "generate:md": "node scripts/run.js generate-card-md --all",
+    "search": "node scripts/run.js search-cards",
+    "review:card": "node scripts/run.js review-card",
+    "web:api": "node scripts/run.js web-server",
+    "web:dev": "concurrently -k -n api,web \"node scripts/run.js web-server\" \"vite --host 127.0.0.1\"",
+    "web:build": "vite build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "vite": "^5.4.11"
+  }
+}

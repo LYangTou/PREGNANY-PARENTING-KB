@@ -1,0 +1,11 @@
+{
+  "sourceId": "hospital-material-placeholder",
+  "url": "sources/hospital-materials/",
+  "fetchedAt": "2026-05-08T01:35:14.734Z",
+  "contentHash": "",
+  "title": "医院资料占位登记",
+  "text": "",
+  "headings": [],
+  "status": "skipped-local",
+  "error": "local sources are not fetched by extract-sources"
+}

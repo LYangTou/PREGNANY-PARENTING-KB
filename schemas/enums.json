@@ -1,0 +1,88 @@
+{
+  "domains": [
+    "medical",
+    "mental-health",
+    "shopping",
+    "father-tasks",
+    "family-records"
+  ],
+  "stages": [
+    "preconception",
+    "pregnancy-early",
+    "pregnancy-middle",
+    "pregnancy-late",
+    "pregnancy-all",
+    "birth",
+    "postpartum",
+    "newborn",
+    "infant-0-6m",
+    "infant-6-12m",
+    "toddler-1-3y",
+    "all",
+    "not-applicable"
+  ],
+  "categories": [
+    "prenatal-checkup",
+    "postpartum-care",
+    "newborn-care",
+    "vaccination",
+    "feeding",
+    "development",
+    "red-flags",
+    "emotion-support",
+    "depression-anxiety",
+    "family-support",
+    "shopping-list",
+    "safe-sleep-shopping",
+    "avoid-products",
+    "father-prenatal",
+    "father-birth",
+    "father-postpartum",
+    "breastfeeding-support",
+    "records-prenatal",
+    "records-baby-checkup",
+    "records-vaccine",
+    "records-feeding-sleep",
+    "template"
+  ],
+  "shoppingTypes": [
+    "must-have",
+    "optional",
+    "not-recommended",
+    "not-applicable"
+  ],
+  "evidenceLevels": [
+    "guideline",
+    "public-health-guidance",
+    "expert-consensus",
+    "product-safety-guidance",
+    "local-material",
+    "source-backed-draft"
+  ],
+  "reviewStatuses": [
+    "draft",
+    "needs-review",
+    "reviewed",
+    "rejected"
+  ],
+  "sourceTypes": [
+    "government-guideline",
+    "government-health-education",
+    "international-guideline",
+    "international-health-topic",
+    "public-health-guidance",
+    "professional-guideline",
+    "product-safety-guidance",
+    "hospital-material"
+  ],
+  "authorityLevels": [
+    "high",
+    "medium",
+    "local"
+  ],
+  "languages": [
+    "zh-CN",
+    "en",
+    "zh-CN+en"
+  ]
+}

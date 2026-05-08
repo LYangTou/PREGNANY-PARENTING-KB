@@ -1,0 +1,41 @@
+{
+  "id": "father-tasks-prenatal-visit-support",
+  "title": "产检陪同的爸爸任务清单",
+  "domain": "father-tasks",
+  "stage": "pregnancy-all",
+  "category": "father-prenatal",
+  "summary": "产检陪同的核心不是只到场，而是提前准备资料、现场记录医生建议、回家后落实复查和家庭安排。",
+  "actions": [
+    "产检前一天核对证件、医保资料、既往检查结果和本次问题清单。",
+    "产检现场记录医生明确交代的复查时间、注意事项和需要观察的异常信号。",
+    "产检后把下一次预约、检查准备事项和家庭分工写入日历或共享清单。"
+  ],
+  "avoid": [
+    "不要替孕妇隐瞒症状或替她回答不确定的信息。",
+    "不要把医生建议简化成“没事”，尤其是有异常指标或复查要求时。",
+    "不要在产检后只保存图片，不整理关键结论和下一步动作。"
+  ],
+  "askDoctorWhen": [
+    "孕妇出现腹痛、阴道出血、胎动异常、明显头痛或视物异常时，及时联系医生或就医。",
+    "对检查结果、用药、复查时间有不确定时，向产检医生确认，不自行判断。"
+  ],
+  "redFlags": [
+    "腹痛",
+    "阴道出血",
+    "胎动异常",
+    "明显头痛或视物异常"
+  ],
+  "shoppingType": "not-applicable",
+  "fatherTasks": [
+    "准备资料包。",
+    "记录医生建议。",
+    "更新家庭日历。",
+    "落实复查和检查前准备。"
+  ],
+  "sources": [
+    "nhc-prenatal-care-2011"
+  ],
+  "evidenceLevel": "expert-consensus",
+  "reviewStatus": "reviewed",
+  "updatedAt": "2026-05-08"
+}

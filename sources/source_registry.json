@@ -1,0 +1,514 @@
+{
+  "groups": [
+    {
+      "id": "medical",
+      "name": "医学保健资料",
+      "description": "孕期、产后、新生儿、0-3岁体检、疫苗、喂养、发育等资料"
+    },
+    {
+      "id": "mental-health",
+      "name": "妈妈情绪与心理支持资料",
+      "description": "孕期情绪、产后情绪、围产期抑郁焦虑、家庭支持"
+    },
+    {
+      "id": "shopping",
+      "name": "母婴用品与购买避坑资料",
+      "description": "待产包、新生儿用品、安全睡眠产品、禁用或不建议产品"
+    },
+    {
+      "id": "father-tasks",
+      "name": "丈夫/爸爸任务资料",
+      "description": "陪产、产后支持、母乳喂养支持、家庭沟通、爸爸自我压力管理"
+    },
+    {
+      "id": "family-records",
+      "name": "家庭记录归档资料",
+      "description": "产检、医嘱、宝宝体检、疫苗、喂养和睡眠记录的本地归档规则"
+    }
+  ],
+  "sources": [
+    {
+      "id": "ndrc-basic-public-services-2023",
+      "title": "国家基本公共服务标准（2023年版）",
+      "organization": "国家发展改革委等部门",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "孕产妇健康服务",
+        "儿童健康服务",
+        "基本公共服务边界"
+      ],
+      "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202308/t20230809_1359262.html",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhc-basic-public-health-service-3rd",
+      "title": "国家基本公共卫生服务规范（第三版）",
+      "organization": "国家卫生健康委员会",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "孕产妇健康管理",
+        "0-6岁儿童健康管理",
+        "预防接种服务"
+      ],
+      "url": "https://www.nhc.gov.cn/jws/c100072/201703/fb477b0d90de44d2a5d2138e82677cf0.shtml",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhc-immunization-schedule-2021",
+      "title": "国家免疫规划疫苗儿童免疫程序及说明（2021年版）",
+      "organization": "国家卫生健康委员会",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "儿童免疫规划",
+        "疫苗接种时间线",
+        "疫苗问答风险边界"
+      ],
+      "url": "https://www.nhc.gov.cn/jkj/c100063/202103/c37c8bf6f00f446c8fa84f3134ac2360.shtml",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhc-infant-feeding-assessment-2024",
+      "title": "婴幼儿营养喂养评估服务指南（试行）",
+      "organization": "国家卫生健康委员会",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "0-3岁营养喂养评估",
+        "母乳喂养",
+        "辅食添加",
+        "生长发育风险识别"
+      ],
+      "url": "https://www.nhc.gov.cn/fys/c100078/202502/19903ff647694f3a85ed6fe332380b34.shtml",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "cns-pregnant-lactating-dietary-guidelines-2022",
+      "title": "中国孕妇、乳母膳食指南（2022）",
+      "organization": "中国营养学会",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "备孕期膳食",
+        "孕期膳食",
+        "哺乳期膳食",
+        "营养健康教育"
+      ],
+      "url": "https://dg.cnsoc.org/article/04/hjgfxca3Ra69sKbvqDETbg.html",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "cns-infant-young-child-feeding-guidelines-2022",
+      "title": "中国婴幼儿喂养指南（2022）",
+      "organization": "中国营养学会",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "0-6月龄母乳喂养",
+        "7-24月龄喂养",
+        "学龄前儿童膳食"
+      ],
+      "url": "https://dg.cnsoc.org/article/04/gc5cUak3RhSGheqSaRljnA.html",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "who-antenatal-care-2016",
+      "title": "WHO Antenatal care recommendations",
+      "organization": "World Health Organization",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "孕期保健",
+        "产前检查",
+        "国际指南对照"
+      ],
+      "url": "https://www.who.int/publications/i/item/9789241549912",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "who-postnatal-care-2022",
+      "title": "WHO Postnatal care recommendations",
+      "organization": "World Health Organization",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "产后保健",
+        "新生儿产后护理",
+        "国际指南对照"
+      ],
+      "url": "https://www.who.int/publications/i/item/9789240045989",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "cdc-developmental-milestones",
+      "title": "CDC Developmental Milestones",
+      "organization": "Centers for Disease Control and Prevention",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "儿童发育里程碑",
+        "发育观察",
+        "发育异常就医提示"
+      ],
+      "url": "https://www.cdc.gov/milestones",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "aap-bright-futures",
+      "title": "AAP Bright Futures / HealthyChildren",
+      "organization": "American Academy of Pediatrics",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "儿童保健",
+        "健康监督访视",
+        "发育和预防保健"
+      ],
+      "url": "https://www.aap.org/brightfutures",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhc-prenatal-care-2011",
+      "title": "孕产期保健工作管理办法和孕产期保健工作规范",
+      "organization": "国家卫生健康委员会",
+      "group": "medical",
+      "domain": "medical",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "孕产期保健流程",
+        "孕期检查基础规则",
+        "既有草稿卡片引用"
+      ],
+      "url": "https://www.nhc.gov.cn/zwgk/wtwj/201304/84ec2d5d37a54398ace49df48ca91c83.shtml",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhc-birth-friendly-hospital-2024",
+      "title": "国家卫健委生育友好医院建设意见",
+      "organization": "国家卫生健康委员会等四部门",
+      "group": "mental-health",
+      "domain": "mental-health",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "生育友好服务",
+        "围孕期心理保健",
+        "家庭支持和连续服务"
+      ],
+      "url": "https://www.nhc.gov.cn/fys/c100078/202501/ee03d72fa38b4c3d837d17d9a9b5e310.shtml",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhc-health-literacy-2024",
+      "title": "国家卫健委妇幼健康素养基本知识",
+      "organization": "国家卫生健康委员会",
+      "group": "mental-health",
+      "domain": "mental-health",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "健康素养基础知识",
+        "妇幼健康教育",
+        "心理健康基础素养"
+      ],
+      "url": "https://www.nhc.gov.cn/xcs/c100123/202405/73a4927142f34152abed875634a3c13b.shtml",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "acog-perinatal-mental-health-screening",
+      "title": "ACOG perinatal mental health screening",
+      "organization": "American College of Obstetricians and Gynecologists",
+      "group": "mental-health",
+      "domain": "mental-health",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "围产期心理筛查",
+        "抑郁焦虑识别",
+        "自伤风险升级提示"
+      ],
+      "url": "https://www.acog.org/programs/perinatal-mental-health/patient-screening",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "cdc-depression-among-women",
+      "title": "CDC depression among women",
+      "organization": "Centers for Disease Control and Prevention",
+      "group": "mental-health",
+      "domain": "mental-health",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "女性抑郁症状科普",
+        "产后抑郁求助提示",
+        "危机资源提示"
+      ],
+      "url": "https://www.cdc.gov/reproductive-health/depression/index.html",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nimh-perinatal-depression",
+      "title": "NIMH perinatal depression",
+      "organization": "National Institute of Mental Health",
+      "group": "mental-health",
+      "domain": "mental-health",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "围产期抑郁科普",
+        "症状识别边界",
+        "寻求专业帮助"
+      ],
+      "url": "https://www.nimh.nih.gov/health/publications/perinatal-depression",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "psi-help-for-dads",
+      "title": "Postpartum Support International dads support",
+      "organization": "Postpartum Support International",
+      "group": "mental-health",
+      "domain": "mental-health",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "爸爸产后心理支持",
+        "同伴支持资源",
+        "家庭心理支持边界"
+      ],
+      "url": "https://postpartum.net/get-help/help-for-dads/",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhs-postnatal-depression",
+      "title": "Postnatal depression",
+      "organization": "NHS",
+      "group": "mental-health",
+      "domain": "mental-health",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "产后情绪支持",
+        "既有草稿卡片引用",
+        "心理专业帮助提示"
+      ],
+      "url": "https://www.nhs.uk/mental-health/conditions/post-natal-depression/overview/",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhs-hospital-bag-checklist",
+      "title": "NHS hospital bag checklist",
+      "organization": "NHS",
+      "group": "shopping",
+      "domain": "shopping",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "待产包",
+        "入院分娩准备",
+        "陪产者用品准备"
+      ],
+      "url": "https://www.nhs.uk/best-start-in-life/pregnancy/preparing-for-labour-and-birth/hospital-bag-checklist/",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhs-newborn-essentials",
+      "title": "NHS newborn essentials",
+      "organization": "NHS",
+      "group": "shopping",
+      "domain": "shopping",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "新生儿用品",
+        "刚需和可选用品区分",
+        "安全睡眠用品基础"
+      ],
+      "url": "https://www.nhs.uk/baby/caring-for-a-newborn/what-you-will-need-for-your-baby/",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "aap-safe-sleep-2022",
+      "title": "AAP safe sleep",
+      "organization": "American Academy of Pediatrics",
+      "group": "shopping",
+      "domain": "shopping",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "婴儿安全睡眠",
+        "睡眠用品避坑",
+        "既有草稿卡片引用"
+      ],
+      "url": "https://www.aap.org/en/patient-care/safe-sleep/",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "healthychildren-safe-sleep",
+      "title": "HealthyChildren safe sleep",
+      "organization": "American Academy of Pediatrics",
+      "group": "shopping",
+      "domain": "shopping",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "家庭可读安全睡眠说明",
+        "婴儿睡眠用品避坑",
+        "照护者教育"
+      ],
+      "url": "https://healthychildren.org/English/ages-stages/baby/sleep/Pages/A-Parents-Guide-to-Safe-Sleep.aspx",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "cpsc-safe-sleep",
+      "title": "CPSC safe sleep products",
+      "organization": "U.S. Consumer Product Safety Commission",
+      "group": "shopping",
+      "domain": "shopping",
+      "evidenceLevel": "product-safety-guidance",
+      "useFor": [
+        "婴儿睡眠产品安全",
+        "召回和产品风险",
+        "既有草稿卡片引用"
+      ],
+      "url": "https://www.cpsc.gov/SafeSleep",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhs-birth-partner-tips",
+      "title": "NHS birth partner tips",
+      "organization": "NHS",
+      "group": "father-tasks",
+      "domain": "father-tasks",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "陪产任务",
+        "分娩前准备",
+        "陪产者具体行动"
+      ],
+      "url": "https://www.nhs.uk/start-for-life/pregnancy/preparing-for-labour-and-birth/tips-for-your-birthing-partner-or-partners/",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhs-advice-for-partners-pregnancy",
+      "title": "Advice for partners during pregnancy",
+      "organization": "NHS",
+      "group": "father-tasks",
+      "domain": "father-tasks",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "孕期伴侣支持",
+        "爸爸孕期家庭支持",
+        "健康生活方式和分娩前准备"
+      ],
+      "url": "https://www.nhs.uk/best-start-in-life/pregnancy/advice-for-partners/",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "tommys-dads-partners-birth-prep",
+      "title": "Tommy’s dads and partners birth preparation",
+      "organization": "Tommy's",
+      "group": "father-tasks",
+      "domain": "father-tasks",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "爸爸和伴侣分娩准备",
+        "陪产支持",
+        "产后初期支持"
+      ],
+      "url": "https://www.tommys.org/pregnancy-information/dads-and-partners/getting-ready-for-the-birth",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "tommys-getting-involved-pregnancy",
+      "title": "Getting involved in the pregnancy - for dads, partners and non-birthing parents",
+      "organization": "Tommy's",
+      "group": "father-tasks",
+      "domain": "father-tasks",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "孕早期爸爸任务",
+        "孕中期爸爸任务",
+        "孕晚期爸爸任务",
+        "伴侣支持和异常症状升级提醒"
+      ],
+      "url": "https://www.tommys.org/pregnancy-information/dads-and-partners/getting-involved-in-the-pregnancy",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "march-of-dimes-becoming-a-dad",
+      "title": "March of Dimes becoming a dad",
+      "organization": "March of Dimes",
+      "group": "father-tasks",
+      "domain": "father-tasks",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "成为爸爸准备",
+        "孕期家庭支持",
+        "爸爸角色适应"
+      ],
+      "url": "https://www.marchofdimes.org/find-support/becoming-dad",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "unicef-dads-breastfeeding-support",
+      "title": "UNICEF how dads can support breastfeeding",
+      "organization": "UNICEF",
+      "group": "father-tasks",
+      "domain": "father-tasks",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "爸爸支持母乳喂养",
+        "母乳喂养家庭分工",
+        "产后支持任务"
+      ],
+      "url": "https://www.unicef.org/eca/stories/how-dads-can-support-breastfeeding",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "hospital-material-placeholder",
+      "title": "医院资料占位登记",
+      "organization": "用户后续补充的医院或产检机构",
+      "group": "family-records",
+      "domain": "family-records",
+      "evidenceLevel": "local-material",
+      "useFor": [
+        "家庭记录归档",
+        "医院资料登记占位",
+        "既有草稿卡片引用"
+      ],
+      "url": "sources/hospital-materials/",
+      "accessDate": "2026-05-08",
+      "status": "needs-review"
+    }
+  ]
+}

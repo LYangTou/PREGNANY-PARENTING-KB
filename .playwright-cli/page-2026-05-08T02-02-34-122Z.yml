@@ -1,0 +1,143 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: /index.html
+      - generic [ref=e6]:
+        - link "我要建议" [ref=e7] [cursor=pointer]:
+          - /url: /article/wyly.html
+        - text: "|"
+        - link "English" [ref=e8] [cursor=pointer]:
+          - /url: http://dg.en.cnsoc.org/
+    - list [ref=e11]:
+      - listitem [ref=e12]:
+        - link "首页" [ref=e13] [cursor=pointer]:
+          - /url: /index.html
+      - listitem [ref=e14]:
+        - link "专家委员会" [ref=e15] [cursor=pointer]:
+          - /url: /zdwynewslist_2101_1.htm
+      - listitem [ref=e16]:
+        - link "历史沿革" [ref=e17] [cursor=pointer]:
+          - /url: /article/2021b.html
+      - listitem [ref=e18]:
+        - link "指南动态" [ref=e19] [cursor=pointer]:
+          - /url: /gzdtnewslist_0403_2_1.htm
+      - listitem [ref=e20]:
+        - link "文献资源" [ref=e21] [cursor=pointer]:
+          - /url: /newslist_0501_1.htm
+      - listitem [ref=e22]:
+        - link "图示和工具" [ref=e23] [cursor=pointer]:
+          - /url: /imgnewslist_0602_1.htm
+      - listitem [ref=e24]:
+        - link "支持和贡献单位" [ref=e25] [cursor=pointer]:
+          - /url: /gxdwnewslist_0701_1.htm
+      - listitem [ref=e26]:
+        - link "关于我们" [ref=e27] [cursor=pointer]:
+          - /url: /article/gywm.html
+      - listitem [ref=e28]:
+        - link "联系我们" [ref=e29] [cursor=pointer]:
+          - /url: /article/lxwm.html
+  - generic [ref=e30]:
+    - generic [ref=e31]:
+      - text: 您当前的位置：
+      - link "中国居民膳食指南" [ref=e32] [cursor=pointer]:
+        - /url: /
+      - text: ">>"
+      - link "指南动态" [ref=e33] [cursor=pointer]:
+        - /url: ../../gzdtnewslist_0401_2_1.htm
+      - text: ">>"
+      - link "新指南解读" [ref=e34] [cursor=pointer]:
+        - /url: ../../gzdtnewslist_0406_2_1.htm
+    - generic [ref=e35]:
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]: 指南动态
+          - list [ref=e40]:
+            - listitem [ref=e41]:
+              - link "宣传和培训" [ref=e42] [cursor=pointer]:
+                - /url: ../../gzdtnewslist_0401_2_1.htm
+            - listitem [ref=e43]:
+              - link "2022版平衡膳食八准则" [ref=e44] [cursor=pointer]:
+                - /url: ../../newslist_0402_1.htm
+            - listitem [ref=e45]:
+              - link "2022版解读" [ref=e46] [cursor=pointer]:
+                - /url: ../../gzdtnewslist_0406_2_1.htm
+            - listitem [ref=e47]:
+              - link "工作会议" [ref=e48] [cursor=pointer]:
+                - /url: ../../gzdtnewslist_0403_2_1.htm
+            - listitem [ref=e49]:
+              - link "国际交流" [ref=e50] [cursor=pointer]:
+                - /url: ../../gzdtnewslist_0404_2_1.htm
+            - listitem [ref=e51]:
+              - link "其它" [ref=e52] [cursor=pointer]:
+                - /url: ../../newslist_0405_1.htm
+        - generic [ref=e53]:
+          - generic [ref=e54]: 中国居民膳食指南（2022）
+          - img [ref=e56]
+        - generic [ref=e57]:
+          - generic [ref=e58]: 联系我们
+          - generic [ref=e59]:
+            - generic [ref=e60]: 地址：
+            - generic [ref=e61]: 北京市西城区广安门内大街6号枫桦豪景A座5单元16层
+            - generic [ref=e62]: 电话：
+            - generic [ref=e63]: 010-83554781
+            - paragraph [ref=e64]: 传真：010-83554780
+            - paragraph [ref=e65]: E-mail：dg2021@cnsoc.org
+            - img [ref=e66]
+      - generic [ref=e67]:
+        - generic [ref=e68]: 中国居民膳食指南解读
+        - generic [ref=e69]:
+          - heading "《中国孕妇、乳母膳食指南（2022）》核心信息" [level=1] [ref=e70]
+          - paragraph [ref=e71]: 发布时间：2022-08-03 点击次数： 89619
+          - generic [ref=e72]:
+            - paragraph [ref=e73]:
+              - strong [ref=e74]: 备孕和孕期妇女膳食指南
+            - paragraph [ref=e75]:
+              - strong [ref=e76]:
+                - img "01-备孕期妇女平衡膳食宝塔(v2022-2.00)-全尺寸.jpg" [ref=e77]
+            - paragraph [ref=e78]:
+              - strong [ref=e79]:
+                - img "02-孕期妇女平衡膳食宝塔(v2022-2.00)-全尺寸.jpg" [ref=e80]
+            - paragraph
+            - paragraph [ref=e81]:
+              - strong [ref=e82]:
+                - strong [ref=e83]:
+                  - img "一图读懂-备孕和孕期妇女膳食指南2022-发布版-jpg.jpg" [ref=e84]
+            - paragraph [ref=e85]:
+              - strong
+            - paragraph [ref=e86]:
+              - strong
+            - paragraph [ref=e87]:
+              - strong [ref=e88]: 哺乳期妇女膳食指南
+            - paragraph [ref=e89]:
+              - img "03-哺乳期妇女平衡膳食宝塔(v2022-2.00)-全尺寸.jpg" [ref=e90]
+            - paragraph [ref=e91]:
+              - img "一图读懂-哺乳期妇女膳食指南2022-发布版.jpg" [ref=e92]
+            - paragraph [ref=e93]: （清晰版图形请前往“图示和工具”）
+            - paragraph [ref=e94]
+  - generic [ref=e95]:
+    - generic [ref=e97]:
+      - link "首页" [ref=e98] [cursor=pointer]:
+        - /url: /index.html
+      - link "专家委员会" [ref=e99] [cursor=pointer]:
+        - /url: /zdwynewslist_2101_1.htm
+      - link "历史沿革" [ref=e100] [cursor=pointer]:
+        - /url: /article/2021b.html
+      - link "指南动态" [ref=e101] [cursor=pointer]:
+        - /url: /gzdtnewslist_0403_2_1.htm
+      - link "文献资源" [ref=e102] [cursor=pointer]:
+        - /url: /newslist_0501_1.htm
+      - link "图示和工具" [ref=e103] [cursor=pointer]:
+        - /url: /imgnewslist_0601_1.htm
+      - link "支持和贡献单位" [ref=e104] [cursor=pointer]:
+        - /url: /gxdwnewslist_0701_1.htm
+      - link "关于我们" [ref=e105] [cursor=pointer]:
+        - /url: /article/gywm.html
+      - link "联系我们" [ref=e106] [cursor=pointer]:
+        - /url: /article/lxwm.html
+    - generic [ref=e108]:
+      - text: 中国居民膳食指南 版权所有 Copyright © 2014 cnsoc.org All rights reserved
+      - link "京ICP备05018212号" [ref=e109] [cursor=pointer]:
+        - /url: http://www.beian.miit.gov.cn
+      - text: 联系电话：010-83554781、83554782、83554783 Email：dg2021@cnsoc.org
+      - text: 地址：北京市朝阳区建国门外大街甲14号北京广播大厦1405室 邮编：100053

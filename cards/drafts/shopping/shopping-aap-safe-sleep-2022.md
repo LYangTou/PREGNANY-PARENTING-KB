@@ -1,0 +1,45 @@
+# 待审核来源草稿：AAP safe sleep
+
+- cardId: shopping-aap-safe-sleep-2022
+- domain: shopping
+- stage: newborn
+- category: shopping-list
+- reviewStatus: needs-review
+- evidenceLevel: guideline
+- updatedAt: 2026-05-08
+
+## 摘要
+
+待人工核对：本草稿由已登记来源 aap-safe-sleep-2022 的来源用途和缓存正文提取线索生成。可优先核对这些线索：婴儿安全睡眠；睡眠用品避坑；既有草稿卡片引用；Shopping cart；Safe Sleep；SUID and Safe Sleep Overview
+
+## 具体动作
+
+- 人工打开来源 aap-safe-sleep-2022，核对标题、发布日期、适用人群和本卡主题是否一致。
+- 围绕来源用途整理可执行要点：婴儿安全睡眠；睡眠用品避坑；既有草稿卡片引用
+- 审核时只保留来源明确支持的内容，并把不确定内容删去或改为待补来源。
+
+## 不要做什么
+
+- 不要把本草稿直接作为 reviewed 内容；必须人工对照来源正文后再审核。
+- 不要补写来源中没有明确支持的医学、心理、用药、疫苗、婴儿安全或商品结论。
+- 不要给出诊断、具体药物剂量、疫苗决策或品牌推荐。
+
+## 何时咨询医生或寻求专业帮助
+
+- 涉及异常症状、用药、疫苗、发热、黄疸、腹痛、出血、呼吸异常、过敏或心理危机时，应咨询医生、及时就医或寻求专业帮助。
+
+## 危险信号
+
+- 无
+
+## 购物类型
+
+optional
+
+## 爸爸/丈夫任务
+
+- 无
+
+## 来源
+
+- aap-safe-sleep-2022: AAP safe sleep (American Academy of Pediatrics)

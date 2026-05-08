@@ -1,0 +1,39 @@
+{
+  "id": "mental-health-postpartum-support-basics",
+  "title": "产后情绪支持的家庭观察",
+  "domain": "mental-health",
+  "stage": "postpartum",
+  "category": "depression-anxiety",
+  "summary": "产后情绪波动需要被认真对待。家庭成员可以观察睡眠、食欲、情绪持续时间、照护能力和求助意愿，但不能据此判断某人已经抑郁。",
+  "actions": [
+    "每天留出固定时间让妈妈休息，爸爸或其他家人承担明确的照护任务。",
+    "用具体问题询问需要什么帮助，例如是否需要补觉、吃饭、洗澡或陪同就医。",
+    "如果负面情绪持续、明显影响生活或照护能力，协助预约专业评估。"
+  ],
+  "avoid": [
+    "不要说“想开点”“别人都这样”来压低问题严重性。",
+    "不要替妈妈判断是否已经抑郁。",
+    "不要把严重失眠、自伤想法或无法照顾自己和宝宝当作普通情绪波动。"
+  ],
+  "askDoctorWhen": [
+    "出现自伤想法、严重绝望、持续失眠、无法照顾自己或宝宝时，应尽快寻求心理健康专业人员、精神科或急诊帮助。",
+    "情绪低落、焦虑或惊恐明显持续并影响日常功能时，建议寻求专业评估。"
+  ],
+  "redFlags": [
+    "自伤或伤害他人的想法",
+    "严重绝望",
+    "持续失眠",
+    "无法照顾自己或宝宝"
+  ],
+  "shoppingType": "not-applicable",
+  "fatherTasks": [
+    "承担夜间换尿布、拍嗝、清洗奶具等可替代任务，保护妈妈连续休息时间。",
+    "发现风险信号时，不争辩、不拖延，直接联系家人和专业帮助。"
+  ],
+  "sources": [
+    "nhs-postnatal-depression"
+  ],
+  "evidenceLevel": "public-health-guidance",
+  "reviewStatus": "draft",
+  "updatedAt": "2026-05-08"
+}

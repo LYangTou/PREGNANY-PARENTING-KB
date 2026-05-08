@@ -1,0 +1,320 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - button "Close cookie warning" [ref=e3] [cursor=pointer]: 
+    - generic [ref=e4]: We Use Cookies
+    - paragraph [ref=e6]:
+      - text: ACOG uses cookies, pixels and similar technologies to personalize your website experience. By clicking “continue” or continuing to use our site, you agree to our
+      - link "Privacy Policy" [ref=e7] [cursor=pointer]:
+        - /url: /legal/privacy-statement
+      - text: .
+    - button "Continue" [ref=e8] [cursor=pointer]
+  - link "Skip to main content" [ref=e9] [cursor=pointer]:
+    - /url: "#maincontent"
+  - generic [ref=e10]:
+    - banner [ref=e11]:
+      - navigation "Utility Navigation" [ref=e14]:
+        - list [ref=e15]:
+          - listitem [ref=e16]:
+            - link "acog.org" [ref=e17] [cursor=pointer]:
+              - /url: https://www.acog.org/
+          - listitem [ref=e18]:
+            - link "ACOG Clinical" [ref=e19] [cursor=pointer]:
+              - /url: https://www.acog.org/clinical
+          - listitem [ref=e20]:
+            - link "For Patients" [ref=e21] [cursor=pointer]:
+              - /url: https://www.acog.org/womens-health
+          - listitem [ref=e22]:
+            - link "Store" [ref=e23] [cursor=pointer]:
+              - /url: https://www.acog.org/store
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - link "ACOG" [ref=e26] [cursor=pointer]:
+            - /url: /womens-health
+            - img "ACOG" [ref=e27]
+          - text: From the American College of Obstetricians & Gynecologists
+        - list "Secondary Navigation" [ref=e28]:
+          - listitem [ref=e29]:
+            - link "Dictionary" [ref=e30] [cursor=pointer]:
+              - /url: https://www.acog.org/womens-health/dictionary
+          - listitem [ref=e31]:
+            - link "About ACOG" [ref=e32] [cursor=pointer]:
+              - /url: https://www.acog.org/womens-health/about-acog
+          - listitem [ref=e33]:
+            - link "Supporters" [ref=e34] [cursor=pointer]:
+              - /url: https://www.acog.org/womens-health/supporters
+        - generic [ref=e39]:
+          - search [ref=e40]:
+            - combobox "Search" [ref=e43]
+          - button "Search" [ref=e44] [cursor=pointer]
+      - list "Main Navigation" [ref=e47]:
+        - listitem [ref=e48]:
+          - link "Healthy Living" [ref=e49] [cursor=pointer]:
+            - /url: /womens-health/healthy-living
+            - generic [ref=e50]: Healthy Living
+        - listitem [ref=e51]:
+          - link "Healthy Teens" [ref=e52] [cursor=pointer]:
+            - /url: /womens-health/healthy-teens
+            - generic [ref=e53]: Healthy Teens
+        - listitem [ref=e54]:
+          - link "Healthy Aging" [ref=e55] [cursor=pointer]:
+            - /url: /womens-health/healthy-aging
+            - generic [ref=e56]: Healthy Aging
+        - listitem [ref=e57]:
+          - link "Pregnancy" [ref=e58] [cursor=pointer]:
+            - /url: /womens-health/pregnancy
+            - generic [ref=e59]: Pregnancy
+        - listitem [ref=e60]:
+          - link "Topics A-Z" [ref=e61] [cursor=pointer]:
+            - /url: /womens-health/topics-a-z
+            - generic [ref=e62]: Topics A-Z
+        - listitem [ref=e63]:
+          - link "Experts & Stories" [ref=e64] [cursor=pointer]:
+            - /url: /womens-health/experts-and-stories
+            - generic [ref=e65]: Experts & Stories
+    - main [ref=e66]:
+      - generic [ref=e69]:
+        - generic [ref=e71]:
+          - generic [ref=e72]: FAQs
+          - heading "A Partner's Guide to Pregnancy" [level=1] [ref=e73]
+          - paragraph [ref=e74]: Frequently Asked Questions
+        - list [ref=e76]:
+          - listitem [ref=e77]: Share
+          - listitem [ref=e78]:
+            - link " Facebook" [ref=e79] [cursor=pointer]:
+              - /url: https://www.facebook.com/ACOGNational
+          - listitem [ref=e80]:
+            - link "" [ref=e81] [cursor=pointer]:
+              - /url: https://bsky.app/profile/acog-org.bsky.social
+          - listitem [ref=e82]:
+            - link " Email" [ref=e83] [cursor=pointer]:
+              - /url: mailto:?subject=A Partner's Guide to Pregnancy - ACOG&body=A Partner's Guide to Pregnancy %0d%0a%0d%0aQuestions and answers on supporting your partner before, during, and after pregnancy. %0d%0a%0d%0ahttps://www.acog.org/womens-health/faqs/a-partners-guide-to-pregnancy
+          - listitem [ref=e84]:
+            - link " Link" [ref=e85] [cursor=pointer]:
+              - /url: "#"
+            - text:  
+          - listitem [ref=e86]:
+            - link " Print" [ref=e87] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=e88]:
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - heading "Overview Expand All" [level=2] [ref=e91]:
+                - generic [ref=e92]: Overview
+                - link "Expand All" [ref=e93] [cursor=pointer]:
+                  - /url: "#"
+              - list "Accordion" [ref=e94]:
+                - listitem [ref=e95]:
+                  - button "How can I support my partner during pregnancy? " [ref=e96] [cursor=pointer]
+                - listitem [ref=e97]:
+                  - button "Why is it important to be supportive during my partner’s pregnancy? " [ref=e98] [cursor=pointer]
+            - generic [ref=e99]:
+              - heading "Understanding Pregnancy Expand All" [level=2] [ref=e100]:
+                - generic [ref=e101]: Understanding Pregnancy
+                - link "Expand All" [ref=e102] [cursor=pointer]:
+                  - /url: "#"
+              - list "Accordion" [ref=e103]:
+                - listitem [ref=e104]:
+                  - button "How long does pregnancy last? " [ref=e105] [cursor=pointer]
+                - listitem [ref=e106]:
+                  - button "How is the due date estimated? " [ref=e107] [cursor=pointer]
+                - listitem [ref=e108]:
+                  - button "What happens during the first trimester of pregnancy? " [ref=e109] [cursor=pointer]
+                - listitem [ref=e110]:
+                  - button "What happens during the second trimester of pregnancy? " [ref=e111] [cursor=pointer]
+                - listitem [ref=e112]:
+                  - button "What happens during the third trimester of pregnancy? " [ref=e113] [cursor=pointer]
+            - generic [ref=e114]:
+              - heading "Health During Pregnancy Expand All" [level=2] [ref=e115]:
+                - generic [ref=e116]: Health During Pregnancy
+                - link "Expand All" [ref=e117] [cursor=pointer]:
+                  - /url: "#"
+              - list "Accordion" [ref=e118]:
+                - listitem [ref=e119]:
+                  - button "What can I expect at prenatal care visits? " [ref=e120] [cursor=pointer]
+                  - text: • •
+                - listitem [ref=e121]:
+                  - button "What lifestyle changes should my partner and I make during pregnancy? " [ref=e122] [cursor=pointer]
+                - listitem [ref=e123]:
+                  - button "Do I need to quit smoking if my partner is pregnant? " [ref=e124] [cursor=pointer]
+                - listitem [ref=e125]:
+                  - button "Is it safe to have sex during pregnancy? " [ref=e126] [cursor=pointer]
+            - generic [ref=e127]:
+              - heading "Getting Ready for Labor and Delivery Expand All" [level=2] [ref=e128]:
+                - generic [ref=e129]: Getting Ready for Labor and Delivery
+                - link "Expand All" [ref=e130] [cursor=pointer]:
+                  - /url: "#"
+              - list "Accordion" [ref=e131]:
+                - listitem [ref=e132]:
+                  - button "How can I help prepare for labor and delivery? " [ref=e133] [cursor=pointer]
+                  - text: • • •
+                - listitem [ref=e134]:
+                  - button "How can I help my partner during labor and delivery? " [ref=e135] [cursor=pointer]
+                - listitem [ref=e136]:
+                  - button "How can I help my partner during early labor? " [ref=e137] [cursor=pointer]
+                  - text: • • • • • • • • •
+                - listitem [ref=e138]:
+                  - button "How can I help my partner during active labor? " [ref=e139] [cursor=pointer]
+                  - text: • • • • • •
+                - listitem [ref=e140]:
+                  - button "How can I help my partner during delivery? " [ref=e141] [cursor=pointer]
+                - listitem [ref=e142]:
+                  - button "What should I know about cesarean birth? " [ref=e143] [cursor=pointer]
+            - generic [ref=e144]:
+              - heading "After the Baby is Born Expand All" [level=2] [ref=e145]:
+                - generic [ref=e146]: After the Baby is Born
+                - link "Expand All" [ref=e147] [cursor=pointer]:
+                  - /url: "#"
+              - list "Accordion" [ref=e148]:
+                - listitem [ref=e149]:
+                  - button "When can we take our baby home from the hospital? " [ref=e150] [cursor=pointer]
+                - listitem [ref=e151]:
+                  - button "What will the weeks after childbirth be like? " [ref=e152] [cursor=pointer]
+                - listitem [ref=e153]:
+                  - button "What is postpartum depression? " [ref=e154] [cursor=pointer]
+                  - text: • • • • •
+                - listitem [ref=e155]:
+                  - button "What is postpartum anxiety? " [ref=e156] [cursor=pointer]
+                - listitem [ref=e157]:
+                  - button "What if I think my partner has postpartum depression or anxiety? " [ref=e158] [cursor=pointer]
+                - listitem [ref=e159]:
+                  - button "How can I feel involved if my partner is breastfeeding? " [ref=e160] [cursor=pointer]
+                  - text: • • • •
+                - listitem [ref=e161]:
+                  - button "When is it OK to have sex again after the baby is born? " [ref=e162] [cursor=pointer]
+                - listitem [ref=e163]:
+                  - button "What else should I know about sex after pregnancy? " [ref=e164] [cursor=pointer]
+                - listitem [ref=e165]:
+                  - button "Should I take parental leave? " [ref=e166] [cursor=pointer]
+                - listitem [ref=e167]:
+                  - button "Glossary " [ref=e168] [cursor=pointer]
+            - generic [ref=e169]:
+              - paragraph [ref=e170]: Article continues below
+              - generic [ref=e171]:
+                - paragraph [ref=e172]: Advertisement
+                - iframe [ref=e176]:
+                  - generic [active]:
+                    - generic [ref=f6e1]:
+                      - link [ref=f6e2] [cursor=pointer]:
+                        - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjsvgJEkykEoaNw8Qhv7YhAEINYBwe8rTRyINoC942vFQGAfFwDtjd_bgG7WYnYc2ZncErZjJiQwrTZOkUUzNPkya2UsxtAEYDu7vuvOxxRxhMfYk2MuMz8YH0n8cBqHb3jS32h1A8cVHuMJzV_Fxgz5P1iudl60-QfAY17vhDjlgPuuw-DUrbCv5INwGfyIHdWGBYj11sOzw0BUzbr6a2VVU6vIy72xjvEvmpBfXv7jJFQ8rIayGM5PYjdPSqQXAcLabk4FVAcjkSQRy5jcHClDkqy9KPwcTZ7dYOd8l39o39DyAGWIEEce4e8mU-ZC0cvFh4dRXONcxx4_GB2T8vQ80Hm3LttopRp_JGz38Ctm87R6K-7SMSw3hyu5_fjkGZVp_FrWbxA8PuTU&sai=AMfl-YSFTpUx_vymoGrhuKpbhoYdaPq-cXmv9DvIUhwsb2paXLHF0FC00_syYmGuJOdj0pyp4nJo7hTanHPobvD5lpNt27h9C9S3qiQOGGRmvRXzVnRK87OzAxuXRjcc0HJD3S59x8fk1Ca6NRB4qRdZ8rcTVbiwogLCg-4FcZVbUJkWGghs5p2M-ISkRGcVqjUYPdRyp1p4cpWVRphr4KSA7qhieA8w8v-rac5p8Gh3fQCZiPjc74f5ARs2Qrd1ESLADUiTet1-AmGDNZuh7gByD-uWjzAWVqSH5WFHtGjqM0m4dmfs30v7uRQZ7nOprBRyNoPOO_VS-X-q-MBGK24LnCpwYZ2S79Ii5jM&sig=Cg0ArKJSzLlubflUdaSS&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://lww.com/pages/register.aspx%3Futm_source%3Dhousead%26utm_medium%3Ddisplay%26utm_campaign%3Dhealth_hlrp_pr_medjnl_4-q241_lww.comcampaign_45337%26utm_term%3Dlww.com%26utm_content%3Dregistrationbannerads
+                      - img [ref=f6e6] [cursor=pointer]
+                      - button [ref=f6e8] [cursor=pointer]:
+                        - img [ref=f6e9]
+                    - iframe
+                - paragraph
+            - generic [ref=e177]:
+              - heading "If you have further questions, contact your ob-gyn." [level=2] [ref=e178]
+              - paragraph [ref=e179]:
+                - text: Don't have an ob-gyn?
+                - link "Learn how to find a doctor near you" [ref=e180] [cursor=pointer]:
+                  - /url: /womens-health/find-an-ob-gyn
+                - text: .
+            - generic [ref=e182]:
+              - paragraph [ref=e183]: FAQ032
+              - paragraph [ref=e184]: "Last updated: January 2023"
+              - paragraph [ref=e185]: "Last reviewed: February 2025"
+            - generic [ref=e186]:
+              - generic [ref=e187]: "Topics:"
+              - generic [ref=e188]:
+                - link "Pregnancy" [ref=e189] [cursor=pointer]:
+                  - /url: /womens-health/resources-for-you#f:@patientportaltopicnames=[Pregnancy]
+                - link "During Pregnancy" [ref=e190] [cursor=pointer]:
+                  - /url: /womens-health/resources-for-you#f:@patientportaltopicnames=[During+Pregnancy]
+                - link "Sexual Health and Relationships" [ref=e191] [cursor=pointer]:
+                  - /url: /womens-health/resources-for-you#f:@patientportaltopicnames=[Sexual+Health+and+Relationships]
+            - paragraph [ref=e193]:
+              - text: Copyright 2026 by the American College of Obstetricians and Gynecologists. All rights reserved. Read
+              - link "copyright and permissions information" [ref=e194] [cursor=pointer]:
+                - /url: /womens-health/about-acog/permissions
+              - text: .
+              - text: This information is designed as an educational aid for the public. It offers current information and opinions related to women's health. It is not intended as a statement of the standard of care. It does not explain all of the proper treatments or methods of care. It is not a substitute for the advice of a physician. Read
+              - link "ACOG’s complete disclaimer" [ref=e195] [cursor=pointer]:
+                - /url: /womens-health/about-acog/disclaimer
+              - text: .
+          - generic [ref=e196]:
+            - generic [ref=e197]:
+              - 'heading "Clinicians: Subscribe to Digital Pamphlets" [level=3] [ref=e198]'
+              - paragraph [ref=e199]: Explore ACOG's library of patient education pamphlets.
+              - link "Pamphlets" [ref=e200] [cursor=pointer]:
+                - /url: /store/products/patient-education/pamphlets/pamphlets-search
+            - generic [ref=e201]:
+              - button "Close this Ad" [ref=e203] [cursor=pointer]: 
+              - paragraph [ref=e204]: Advertisement
+              - iframe [ref=e208]:
+                - generic [active]:
+                  - generic [ref=f5e1]:
+                    - link [ref=f5e2] [cursor=pointer]:
+                      - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjstHBz0rc__AZx64bi_pdjcU5QSVscEjfKr7ba_9IGG_oiLAJqlR9h-CquqJaXabbKBpjYOiMzlkVagvCKf5tMsMjDuy1kKEys1bJce9JkkbU1O5hIAmVJcN-jM0i8CT34zWmKgSlOHhSIqPeFcu9bQTgvqKrd3qGVZ8KRH3SBPRTyf5vqnJ-59tBuANofez_ADzRyo6Dfyx6U1DN8cnD26KcLKt2HXvd6FTwMtDlip6j0WtzsKuYlJYIC1esDTtUdf34qe6_WgKuZXGTaH3FYIiep-IErzc4vnil38CXLFlYn9wcYRviKoI8wxTH6AZAUEeeNR0NfE3IDK9a8kFQuG-3Pk4PIETSlsc-Jtl68yT7SqGP6fv6e3Y6_ddGvEI2n-ZtQy0u863zUc&sai=AMfl-YQbK--56Nkr6jR9skh47JXU18aEdWjKDx1wQ--yzhRtAWizkoFL7W-UyKl7CgoSNPp-D7nX5XXRdrr79pIbD6FXjteZY9xBdTJOOKk3JOGXn4wIqeUCrwBmWPo0CVdIAa_-h-ZBwu5GZzYnp4nVVfBMN1LZEahiTkPOy_5wviiQEsBDyy5xGcE_669oKzdmNoYORIA_T1kGju8eStB37OSotR-iWKfbQ83VAugWCcUdOmN-RGCXvz1cw8-eFzEzzzSx1ms8VKc_zijWtLjwqAcGJAkXzXuyQu9T-IKO-89b880FL6UZWf1VUpkKQtMmi-4Jc_H2QJftsPJ89MtoXI_lxjhWZSWbJMM&sig=Cg0ArKJSzCWkLebuLQ9W&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://lww.com/pages/register.aspx%3Futm_source%3Dhousead%26utm_medium%3Ddisplay%26utm_campaign%3Dhealth_hlrp_pr_medjnl_4-q241_lww.comcampaign_45337%26utm_term%3Dlww.com%26utm_content%3Dregistrationbannerads
+                    - img [ref=f5e6] [cursor=pointer]
+                    - button [ref=f5e8] [cursor=pointer]:
+                      - img [ref=f5e9]
+                  - iframe
+              - paragraph
+      - generic [ref=e210]:
+        - generic [ref=e212]:
+          - img "Your Pregnancy and Childbirth book." [ref=e213]
+          - heading "A Guide to Pregnancy from Ob-Gyns" [level=2] [ref=e214]
+          - paragraph [ref=e215]: "For trusted, in-depth advice from ob-gyns, turn to Your Pregnancy and Childbirth: Month to Month."
+          - link "Learn About the Book" [ref=e216] [cursor=pointer]:
+            - /url: /womens-health/your-pregnancy-and-childbirth
+        - generic [ref=e217]:
+          - img "Video play icon." [ref=e218]
+          - heading "ACOG Explains" [level=2] [ref=e219]
+          - paragraph [ref=e220]: A quick and easy way to learn more about your health.
+          - link "Watch Now" [ref=e222] [cursor=pointer]:
+            - /url: /womens-health/resources-for-you#q=acog%20explains&f:@patientportalcontenttype=[Video]
+      - generic [ref=e223]:
+        - heading "What to Read Next" [level=2] [ref=e224]
+        - generic [ref=e225]:
+          - link "Expert View An Ob-Gyn's Guide to Standing Up for Yourself During Pregnancy" [ref=e226] [cursor=pointer]:
+            - /url: /womens-health/experts-and-stories/the-latest/an-ob-gyns-guide-to-standing-up-for-yourself-during-pregnancy
+            - generic [ref=e227]: Expert View
+            - paragraph [ref=e228]: An Ob-Gyn's Guide to Standing Up for Yourself During Pregnancy
+          - link "Expert View 3 Questions to Ask Yourself Before Getting Prenatal Genetic Testing" [ref=e229] [cursor=pointer]:
+            - /url: /womens-health/experts-and-stories/the-latest/3-questions-to-ask-yourself-before-getting-prenatal-genetic-testing
+            - generic [ref=e230]: Expert View
+            - paragraph [ref=e231]: 3 Questions to Ask Yourself Before Getting Prenatal Genetic Testing
+          - link "Expert View 5 Reasons Why You Need a Postpartum Support Network" [ref=e232] [cursor=pointer]:
+            - /url: /womens-health/experts-and-stories/the-latest/5-reasons-why-you-need-a-postpartum-support-network
+            - generic [ref=e233]: Expert View
+            - paragraph [ref=e234]: 5 Reasons Why You Need a Postpartum Support Network
+          - link "Patient Story What I Learned From Being Pregnant in My 40s" [ref=e235] [cursor=pointer]:
+            - /url: /womens-health/experts-and-stories/the-latest/what-i-learned-from-being-pregnant-in-my-40s
+            - generic [ref=e236]: Patient Story
+            - paragraph [ref=e237]: What I Learned From Being Pregnant in My 40s
+    - contentinfo [ref=e238]:
+      - generic [ref=e239]:
+        - generic [ref=e240]:
+          - list [ref=e241]:
+            - listitem [ref=e242]:
+              - link " Facebook" [ref=e243] [cursor=pointer]:
+                - /url: https://www.facebook.com/ACOGNational
+            - listitem [ref=e244]:
+              - link "" [ref=e245] [cursor=pointer]:
+                - /url: https://bsky.app/profile/acog.org
+            - listitem [ref=e246]:
+              - link " LinkedIn" [ref=e247] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/acog/
+            - listitem [ref=e248]:
+              - link " Instagram" [ref=e249] [cursor=pointer]:
+                - /url: https://www.instagram.com/acog_org/
+          - list [ref=e250]:
+            - listitem [ref=e251]:
+              - link "About ACOG" [ref=e252] [cursor=pointer]:
+                - /url: /womens-health/about-acog
+            - listitem [ref=e253]:
+              - link "Disclaimer" [ref=e254] [cursor=pointer]:
+                - /url: /womens-health/about-acog/disclaimer
+            - listitem [ref=e255]:
+              - link "Contact Us" [ref=e256] [cursor=pointer]:
+                - /url: /womens-health/about-acog/contact-us
+            - listitem [ref=e257]:
+              - link "How to Find an Ob-Gyn" [ref=e258] [cursor=pointer]:
+                - /url: /womens-health/find-an-ob-gyn
+        - generic [ref=e260]:
+          - paragraph [ref=e261]: Copyright 2026 American College of Obstetricians and Gynecologists
+          - paragraph [ref=e262]:
+            - link "Privacy Statement" [ref=e263] [cursor=pointer]:
+              - /url: /legal/privacy-statement
+            - text: "|"
+            - link "Terms and Conditions of Use" [ref=e264] [cursor=pointer]:
+              - /url: /legal/terms-of-use
