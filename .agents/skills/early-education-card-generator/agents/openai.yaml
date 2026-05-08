@@ -1,0 +1,7 @@
+interface:
+  display_name: "Early Education Cards"
+  short_description: "生成幼儿教育待审核知识卡片"
+  default_prompt: "Use $early-education-card-generator to draft source-backed toddler education cards for the pregnancy-parenting knowledge base."
+
+policy:
+  allow_implicit_invocation: true

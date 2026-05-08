@@ -375,6 +375,7 @@ function handleSearch(_req, res, url) {
   const query = String(url.searchParams.get("query") || url.searchParams.get("q") || "").trim();
   const domain = String(url.searchParams.get("domain") || "");
   const stage = String(url.searchParams.get("stage") || "");
+  const category = String(url.searchParams.get("category") || "");
   const limitValue = Number(url.searchParams.get("limit") || 10);
   const limit = Number.isFinite(limitValue) && limitValue > 0 ? limitValue : 10;
   const sourcesById = sourceMap();
@@ -382,6 +383,7 @@ function handleSearch(_req, res, url) {
 
   if (domain) candidates = candidates.filter(({ card }) => card.domain === domain);
   if (stage) candidates = candidates.filter(({ card }) => card.stage === stage);
+  if (category) candidates = candidates.filter(({ card }) => card.category === category);
 
   if (query) {
     const lowerQuery = query.toLowerCase();
@@ -405,6 +407,7 @@ function handleSearch(_req, res, url) {
     query,
     domain,
     stage,
+    category,
     results,
     message: results.length === 0 ? "当前知识库资料不足" : "",
     safetyNotice: safetyNoticeFor(riskText)

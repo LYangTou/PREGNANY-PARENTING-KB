@@ -1,0 +1,57 @@
+HealthyChildren.org / American Academy of Pediatrics 问答页中文整理
+
+原始标题：
+When can my unborn baby hear me? I'd love to be able to read and sing to them.
+
+作者：
+Jennifer Shu, MD, FAAP
+
+页面更新时间：
+2021-04-28
+
+来源说明：
+Adapted from Heading Home With Your Newborn, Fourth Edition (Copyright 2020 American Academy of Pediatrics)
+
+核心信息：
+
+1. 胎儿听觉时间线
+
+页面说明，孕约 18 周时，胎儿开始能听到母体内的声音，例如心跳；孕 27-29 周，也就是约 6-7 个月时，胎儿可以听到部分体外声音，例如照护者的声音；接近足月时，听觉水平更接近成人。
+
+2. 读书和唱歌的合理定位
+
+孕期读书、唱歌、反复出现的熟悉声音，可以帮助宝宝熟悉某些声音；出生后，熟悉的音乐、书本内容或照护者声音可能带来安抚作用。这个方向更适合写成“亲子联结”和“熟悉声音”，不应写成能力训练。
+
+3. 明确边界
+
+页面特别提醒，出生前不能真正教会宝宝知识；最多是让宝宝熟悉某些歌曲或书。如果孕期读书、唱歌让照护者觉得有负担，不需要因此有负罪感；对孕妇和宝宝来说，保持放松和愉快也重要。
+
+4. 出生后阅读
+
+页面把出生后阅读放在亲子时间、语言发展和阅读习惯培养的方向，并列出出生后不同月龄可能出现的早期阅读相关行为。这些内容适用于出生后亲子阅读，不应倒推为胎儿早教效果。
+
+5. 听力筛查
+
+页面提示部分儿童存在听力损失，新生儿听力筛查对早期发现和干预很重要。
+
+6. 医学边界
+
+页面声明网站信息不能替代儿科医生的医疗照护和建议，个体情况可能需要医生给出不同建议。
+
+适合制卡用途：
+
+- 胎儿听觉发育科普
+- 孕期读书唱歌的边界
+- 孕期亲子联结
+- 反夸大胎教效果
+
+不适合制卡结论：
+
+- 胎教提升智力
+- 胎教提升语言能力
+- 胎教改善性格
+- 胎教音乐训练能力
+- 胎教课程或设备推荐
+
+Cache note:
+Original page text was extracted with Playwright from #read_content on 2026-05-08, then converted into Chinese source notes for local draft-card generation.

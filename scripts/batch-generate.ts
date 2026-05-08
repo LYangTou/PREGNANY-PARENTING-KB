@@ -21,7 +21,7 @@ const targetSourceId = args.source ? String(args.source) : "";
 const targetDomain = args.domain ? String(args.domain) : "";
 const generationLimit = Number(args.limit || 0);
 const force = Boolean(args.force);
-const allowedDomains = new Set(["medical", "mental-health", "shopping", "father-tasks"]);
+const allowedDomains = new Set(["medical", "early-education", "mental-health", "shopping", "father-tasks"]);
 const registry = loadSourceRegistry();
 const enums = loadEnums();
 const sourcesById = sourceMap(registry);
@@ -36,15 +36,20 @@ if (sources.length === 0) {
   process.exit(1);
 }
 
-function stageForDomain(domain) {
+function stageForDomain(domain, source) {
   if (domain === "shopping") return "newborn";
+  if (domain === "early-education" && /prenatal|unborn|fetal|bonding|hearing/.test(source.id)) return "pregnancy-all";
+  if (domain === "early-education") return "toddler-1-3y";
   if (domain === "father-tasks") return "pregnancy-all";
   if (domain === "mental-health") return "postpartum";
   return "pregnancy-all";
 }
 
-function categoryForDomain(domain) {
+function categoryForDomain(domain, source) {
   if (domain === "shopping") return "shopping-list";
+  if (domain === "early-education" && /reading|singing|hearing/.test(source.id)) return "language-reading";
+  if (domain === "early-education" && /bonding/.test(source.id)) return "family-support";
+  if (domain === "early-education") return "early-education";
   if (domain === "father-tasks") return "father-prenatal";
   if (domain === "mental-health") return "emotion-support";
   return "prenatal-checkup";
@@ -95,8 +100,8 @@ function draftFromSource(source) {
     id,
     title,
     domain: source.domain,
-    stage: stageForDomain(source.domain),
-    category: categoryForDomain(source.domain),
+    stage: stageForDomain(source.domain, source),
+    category: categoryForDomain(source.domain, source),
     summary: `待人工核对：本草稿由已登记来源 ${source.id} 的来源用途和缓存正文提取线索生成。可优先核对这些线索：${hintText}`,
     actions: [
       `人工打开来源 ${source.id}，核对标题、发布日期、适用人群和本卡主题是否一致。`,

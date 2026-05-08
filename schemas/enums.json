@@ -1,6 +1,7 @@
 {
   "domains": [
     "medical",
+    "early-education",
     "mental-health",
     "shopping",
     "father-tasks",
@@ -18,6 +19,7 @@
     "infant-0-6m",
     "infant-6-12m",
     "toddler-1-3y",
+    "preschool-3-6y",
     "all",
     "not-applicable"
   ],
@@ -28,6 +30,9 @@
     "vaccination",
     "feeding",
     "development",
+    "early-education",
+    "language-reading",
+    "play-learning",
     "red-flags",
     "emotion-support",
     "depression-anxiety",

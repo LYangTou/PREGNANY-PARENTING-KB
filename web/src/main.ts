@@ -90,6 +90,7 @@ const state = {
     query: "",
     domain: "",
     stage: "",
+    category: "",
     limit: "10",
     response: null as SearchResponse | null
   },
@@ -104,6 +105,103 @@ function escapeHtml(value: unknown): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+const labels: Record<string, Record<string, string>> = {
+  domain: {
+    medical: "医学保健",
+    "early-education": "早教与亲子互动",
+    "mental-health": "情绪与心理支持",
+    shopping: "母婴用品",
+    "father-tasks": "爸爸/丈夫任务",
+    "family-records": "家庭记录归档"
+  },
+  stage: {
+    preconception: "备孕期",
+    "pregnancy-early": "孕早期",
+    "pregnancy-middle": "孕中期",
+    "pregnancy-late": "孕晚期",
+    "pregnancy-all": "孕期通用",
+    birth: "分娩期",
+    postpartum: "产后",
+    newborn: "新生儿",
+    "infant-0-6m": "婴儿 0-6 月",
+    "infant-6-12m": "婴儿 6-12 月",
+    "toddler-1-3y": "幼儿 1-3 岁",
+    "preschool-3-6y": "学前 3-6 岁",
+    all: "全阶段",
+    "not-applicable": "不适用"
+  },
+  category: {
+    "prenatal-checkup": "孕期检查",
+    "postpartum-care": "产后护理",
+    "newborn-care": "新生儿护理",
+    vaccination: "疫苗",
+    feeding: "喂养",
+    development: "发展支持",
+    "early-education": "早教边界",
+    "language-reading": "语言与阅读",
+    "play-learning": "游戏学习",
+    "red-flags": "危险信号",
+    "emotion-support": "情绪支持",
+    "depression-anxiety": "抑郁/焦虑识别",
+    "family-support": "家庭支持",
+    "shopping-list": "用品清单",
+    "safe-sleep-shopping": "安全睡眠用品",
+    "avoid-products": "避坑用品",
+    "father-prenatal": "孕期爸爸任务",
+    "father-birth": "陪产任务",
+    "father-postpartum": "产后爸爸任务",
+    "breastfeeding-support": "母乳喂养支持",
+    "records-prenatal": "产检记录",
+    "records-baby-checkup": "宝宝体检记录",
+    "records-vaccine": "疫苗记录",
+    "records-feeding-sleep": "喂养/睡眠记录",
+    template: "模板"
+  },
+  reviewStatus: {
+    draft: "草稿",
+    "needs-review": "待审核",
+    reviewed: "已审核",
+    rejected: "已驳回"
+  },
+  evidenceLevel: {
+    guideline: "指南",
+    "public-health-guidance": "公共健康指导",
+    "expert-consensus": "专家共识",
+    "product-safety-guidance": "产品安全指导",
+    "local-material": "本地材料",
+    "source-backed-draft": "来源支持草稿"
+  },
+  field: {
+    id: "卡片 ID",
+    title: "标题",
+    domain: "知识域",
+    stage: "阶段",
+    category: "分类",
+    summary: "摘要",
+    actions: "具体动作",
+    avoid: "不要做什么",
+    askDoctorWhen: "何时求助",
+    redFlags: "危险信号",
+    shoppingType: "购物类型",
+    fatherTasks: "爸爸任务",
+    sources: "来源",
+    evidenceLevel: "证据等级",
+    reviewStatus: "审核状态",
+    updatedAt: "更新时间",
+    "all-reviewed": "全部已审核卡片",
+    sourceIds: "来源 ID"
+  }
+};
+
+function labelFor(kind: keyof typeof labels, value = ""): string {
+  return labels[kind]?.[value] || value;
+}
+
+function labelWithRaw(kind: keyof typeof labels, value = ""): string {
+  const label = labelFor(kind, value);
+  return label === value ? value : `${label}（${value}）`;
 }
 
 let staticPreviewData: Promise<StaticPreviewData> | null = null;
@@ -153,6 +251,7 @@ async function staticApi<T>(path: string): Promise<T> {
     const query = String(url.searchParams.get("query") || url.searchParams.get("q") || "").trim();
     const domain = String(url.searchParams.get("domain") || "");
     const stage = String(url.searchParams.get("stage") || "");
+    const category = String(url.searchParams.get("category") || "");
     const limitValue = Number(url.searchParams.get("limit") || 10);
     const limit = Number.isFinite(limitValue) && limitValue > 0 ? limitValue : 10;
     const lowerQuery = query.toLowerCase();
@@ -160,6 +259,7 @@ async function staticApi<T>(path: string): Promise<T> {
     const results = data.reviewed
       .filter((card) => !domain || card.domain === domain)
       .filter((card) => !stage || card.stage === stage)
+      .filter((card) => !category || card.category === category)
       .filter((card) => !query || data.searchIndex.find((item) => item.id === card.id)?.text.includes(lowerQuery))
       .slice(0, limit)
       .map((card) => ({
@@ -173,6 +273,7 @@ async function staticApi<T>(path: string): Promise<T> {
       query,
       domain,
       stage,
+      category,
       results,
       message: results.length === 0 ? "当前知识库资料不足" : "",
       safetyNotice: riskKeywords.some((keyword) => riskText.includes(keyword))
@@ -226,12 +327,14 @@ function matchedFieldsForStaticCard(card: Record<string, unknown>, query: string
     .map(([field]) => field);
 }
 
-function optionList(values: string[] = [], current = ""): string {
-  return `<option value="">全部</option>${values.map((value) => `<option value="${escapeHtml(value)}" ${value === current ? "selected" : ""}>${escapeHtml(value)}</option>`).join("")}`;
+function optionList(kind: keyof typeof labels, values: string[] = [], current = ""): string {
+  return `<option value="">全部</option>${values.map((value) => `<option value="${escapeHtml(value)}" ${value === current ? "selected" : ""}>${escapeHtml(labelWithRaw(kind, value))}</option>`).join("")}`;
 }
 
-function badge(value: string, tone = ""): string {
-  return `<span class="badge ${tone}">${escapeHtml(value)}</span>`;
+function badge(value: string, tone = "", kind?: keyof typeof labels): string {
+  const text = kind ? labelFor(kind, value) : value;
+  const title = kind && text !== value ? ` title="${escapeHtml(value)}"` : "";
+  return `<span class="badge ${tone}"${title}>${escapeHtml(text)}</span>`;
 }
 
 function renderShell() {
@@ -259,9 +362,9 @@ function renderStatus(): string {
   return `
     <section class="status-grid" aria-label="项目状态">
       <div><strong>${sourceTotal}</strong><span>已登记来源</span></div>
-      <div><strong>${state.status.draftCards}</strong><span>Draft 卡片</span></div>
-      <div><strong>${state.status.reviewedCards}</strong><span>Reviewed 卡片</span></div>
-      <div><strong>${state.status.reviewedJsonFiles}</strong><span>Reviewed JSON</span></div>
+      <div><strong>${state.status.draftCards}</strong><span>草稿卡片</span></div>
+      <div><strong>${state.status.reviewedCards}</strong><span>已审核卡片</span></div>
+      <div><strong>${state.status.reviewedJsonFiles}</strong><span>已审核 JSON</span></div>
     </section>
   `;
 }
@@ -271,10 +374,10 @@ function renderReviewView(): string {
     <section class="workbench">
       <aside class="sidebar">
         <div class="toolbar compact">
-          <label>Domain<select data-filter="domain">${optionList(state.status?.enums.domains, state.draftFilters.domain)}</select></label>
-          <label>Stage<select data-filter="stage">${optionList(state.status?.enums.stages, state.draftFilters.stage)}</select></label>
-          <label>Category<select data-filter="category">${optionList(state.status?.enums.categories, state.draftFilters.category)}</select></label>
-          <label>Status<select data-filter="reviewStatus">${optionList(state.status?.enums.reviewStatuses, state.draftFilters.reviewStatus)}</select></label>
+          <label>知识域<select data-filter="domain">${optionList("domain", state.status?.enums.domains, state.draftFilters.domain)}</select></label>
+          <label>阶段<select data-filter="stage">${optionList("stage", state.status?.enums.stages, state.draftFilters.stage)}</select></label>
+          <label>分类<select data-filter="category">${optionList("category", state.status?.enums.categories, state.draftFilters.category)}</select></label>
+          <label>审核状态<select data-filter="reviewStatus">${optionList("reviewStatus", state.status?.enums.reviewStatuses, state.draftFilters.reviewStatus)}</select></label>
         </div>
         <div class="list" aria-label="Draft 卡片列表">
           ${state.drafts.length ? state.drafts.map(renderDraftListItem).join("") : `<p class="empty">没有匹配的 draft 卡片。</p>`}
@@ -290,8 +393,8 @@ function renderDraftListItem(card: CardSummary): string {
   return `
     <button class="list-item ${selected}" data-draft-id="${escapeHtml(card.id)}">
       <span class="item-title">${escapeHtml(card.title || card.id)}</span>
-      <span class="item-meta">${escapeHtml(card.domain)} / ${escapeHtml(card.stage)}</span>
-      <span class="item-meta">${escapeHtml(card.category)} · ${escapeHtml(card.reviewStatus)}</span>
+      <span class="item-meta">${escapeHtml(labelFor("domain", card.domain))} / ${escapeHtml(labelFor("stage", card.stage))}</span>
+      <span class="item-meta">${escapeHtml(labelFor("category", card.category))} · ${escapeHtml(labelFor("reviewStatus", card.reviewStatus))}</span>
     </button>
   `;
 }
@@ -308,7 +411,7 @@ function renderDraftDetail(): string {
     <div class="detail-head">
       <div>
         <h2>${escapeHtml(detail.draft.title || detail.draft.id)}</h2>
-        <p>${badge(detail.draft.domain)} ${badge(detail.draft.stage)} ${badge(detail.draft.category)} ${badge(detail.draft.reviewStatus, "status")}</p>
+        <p>${badge(detail.draft.domain, "", "domain")} ${badge(detail.draft.stage, "", "stage")} ${badge(detail.draft.category, "", "category")} ${badge(detail.draft.reviewStatus, "status", "reviewStatus")}</p>
       </div>
       <div class="actions">
         <button data-action="dry-run" ${state.loading || state.staticPreview ? "disabled" : ""}>Dry-run</button>
@@ -329,7 +432,7 @@ function renderDraftDetail(): string {
       </div>
       <div>
         <h3>字段完整性</h3>
-        <div class="field-grid">${detail.fieldStatus.map((field) => `<span class="${field.present && field.filled ? "ok" : "warning"}">${escapeHtml(field.field)}</span>`).join("")}</div>
+        <div class="field-grid">${detail.fieldStatus.map((field) => `<span class="${field.present && field.filled ? "ok" : "warning"}" title="${escapeHtml(field.field)}">${escapeHtml(labelFor("field", field.field))}</span>`).join("")}</div>
       </div>
     </section>
     <section>
@@ -352,7 +455,7 @@ function renderSource(source: Source): string {
     <div class="source">
       <strong>${escapeHtml(source.id)}</strong>
       <span>${escapeHtml(source.title)} · ${escapeHtml(source.organization)}</span>
-      <span>${escapeHtml(source.evidenceLevel)} · ${escapeHtml(source.domain)}</span>
+      <span>${escapeHtml(labelFor("evidenceLevel", source.evidenceLevel || ""))} · ${escapeHtml(labelFor("domain", source.domain || ""))}</span>
     </div>
   `;
 }
@@ -363,12 +466,13 @@ function renderSearchView(): string {
     <section class="search-panel">
       <div class="toolbar">
         <label>关键词<input data-search="query" value="${escapeHtml(state.search.query)}" placeholder="例如：安全睡眠" /></label>
-        <label>Domain<select data-search="domain">${optionList(state.status?.enums.domains, state.search.domain)}</select></label>
-        <label>Stage<select data-search="stage">${optionList(state.status?.enums.stages, state.search.stage)}</select></label>
-        <label>Limit<input data-search="limit" type="number" min="1" max="50" value="${escapeHtml(state.search.limit)}" /></label>
-        <button class="primary" data-action="search">查询 reviewed</button>
+        <label>知识域<select data-search="domain">${optionList("domain", state.status?.enums.domains, state.search.domain)}</select></label>
+        <label>阶段<select data-search="stage">${optionList("stage", state.status?.enums.stages, state.search.stage)}</select></label>
+        <label>分类<select data-search="category">${optionList("category", state.status?.enums.categories, state.search.category)}</select></label>
+        <label>数量<input data-search="limit" type="number" min="1" max="50" value="${escapeHtml(state.search.limit)}" /></label>
+        <button class="primary" data-action="search">查询已审核卡片</button>
       </div>
-      <p class="scope">Search scope: cards/reviewed/。drafts 不作为问答依据。</p>
+      <p class="scope">查询范围：仅 cards/reviewed/。drafts 不作为问答依据。</p>
       ${response?.safetyNotice ? `<p class="alert warning">${escapeHtml(response.safetyNotice)}</p>` : ""}
       ${response ? renderSearchResults(response) : `<p class="empty">输入关键词或直接查询全部 reviewed 卡片。</p>`}
     </section>
@@ -383,9 +487,9 @@ function renderSearchResults(response: SearchResponse): string {
         <article class="result">
           <h2>${escapeHtml(result.title || result.id)}</h2>
           <p>${escapeHtml(result.summary)}</p>
-          <p>${badge(result.id)} ${badge(result.domain)} ${badge(result.stage)} ${badge(result.category)}</p>
-          <p class="meta">matchedFields=${escapeHtml((result.matchedFields || []).join(","))}</p>
-          <p class="meta">sourceIds=${escapeHtml((result.sourceIds || []).join(","))}</p>
+          <p>${badge(result.id)} ${badge(result.domain, "", "domain")} ${badge(result.stage, "", "stage")} ${badge(result.category, "", "category")}</p>
+          <p class="meta">匹配字段：${escapeHtml((result.matchedFields || []).map((field) => labelFor("field", field)).join("、"))}</p>
+          <p class="meta">来源 ID：${escapeHtml((result.sourceIds || []).join("、"))}</p>
         </article>
       `).join("")}
     </div>
@@ -424,9 +528,11 @@ function bindShellEvents() {
   document.querySelector<HTMLButtonElement>("[data-action='apply']")?.addEventListener("click", applyReview);
 
   document.querySelectorAll<HTMLInputElement | HTMLSelectElement>("[data-search]").forEach((input) => {
-    input.addEventListener("input", () => {
+    const updateSearchValue = () => {
       state.search[input.dataset.search as keyof typeof state.search] = input.value as never;
-    });
+    };
+    input.addEventListener("input", updateSearchValue);
+    input.addEventListener("change", updateSearchValue);
   });
   document.querySelector<HTMLButtonElement>("[data-action='search']")?.addEventListener("click", runSearch);
 }
@@ -520,6 +626,7 @@ async function runSearch() {
   if (state.search.query.trim()) params.set("query", state.search.query.trim());
   if (state.search.domain) params.set("domain", state.search.domain);
   if (state.search.stage) params.set("stage", state.search.stage);
+  if (state.search.category) params.set("category", state.search.category);
   if (state.search.limit) params.set("limit", state.search.limit);
   state.search.response = await api<SearchResponse>(`/api/search?${params.toString()}`);
   renderShell();

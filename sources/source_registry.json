@@ -6,6 +6,11 @@
       "description": "孕期、产后、新生儿、0-3岁体检、疫苗、喂养、发育等资料"
     },
     {
+      "id": "early-education",
+      "name": "幼儿教育资料",
+      "description": "胎儿早教边界、孕期亲子联结、0-6岁亲子互动、语言阅读、游戏学习、学前发展支持和科学保教资料"
+    },
+    {
       "id": "mental-health",
       "name": "妈妈情绪与心理支持资料",
       "description": "孕期情绪、产后情绪、围产期抑郁焦虑、家庭支持"
@@ -190,6 +195,38 @@
       "status": "active"
     },
     {
+      "id": "healthychildren-unborn-hearing-reading-singing",
+      "title": "When can my unborn baby hear me? I'd love to be able to read and sing to them.",
+      "organization": "HealthyChildren.org / American Academy of Pediatrics",
+      "group": "early-education",
+      "domain": "early-education",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "胎儿听觉发育科普",
+        "孕期读书唱歌和熟悉声音",
+        "胎儿早教效果边界"
+      ],
+      "url": "https://www.healthychildren.org/English/tips-tools/ask-the-pediatrician/Pages/I%E2%80%99m-pregnant-and-would-like-to-sing-to-my-unborn-baby.aspx",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "nhs-start-for-life-prenatal-bonding",
+      "title": "Building a close relationship with your baby",
+      "organization": "NHS Best Start in Life",
+      "group": "early-education",
+      "domain": "early-education",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "孕期亲子联结",
+        "轻柔说话、唱歌、抚摸肚子的低风险边界",
+        "亲子联结困难时求助"
+      ],
+      "url": "https://www.nhs.uk/best-start-in-life/baby/baby-basics/bonding-with-your-baby/building-a-close-relationship-with-your-baby/",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
       "id": "nhc-prenatal-care-2011",
       "title": "孕产期保健工作管理办法和孕产期保健工作规范",
       "organization": "国家卫生健康委员会",
@@ -202,6 +239,74 @@
         "既有草稿卡片引用"
       ],
       "url": "https://www.nhc.gov.cn/zwgk/wtwj/201304/84ec2d5d37a54398ace49df48ca91c83.shtml",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "cdc-positive-parenting-toddlers-1-2",
+      "title": "Positive Parenting Tips: Toddlers (1–2 years old)",
+      "organization": "Centers for Disease Control and Prevention",
+      "group": "early-education",
+      "domain": "early-education",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "1-2岁幼儿亲子互动",
+        "语言发展和日常阅读",
+        "探索和游戏学习",
+        "安全健康边界"
+      ],
+      "url": "https://www.cdc.gov/child-development/positive-parenting-tips/toddlers-1-2-years.html",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "cdc-positive-parenting-toddlers-2-3",
+      "title": "Positive Parenting Tips: Toddlers (2–3 years old)",
+      "organization": "Centers for Disease Control and Prevention",
+      "group": "early-education",
+      "domain": "early-education",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "2-3岁幼儿亲子互动",
+        "假装游戏和儿歌",
+        "早期规则和情绪表达",
+        "屏幕时间和安全边界"
+      ],
+      "url": "https://www.cdc.gov/child-development/positive-parenting-tips/toddlers-2-3-years.html",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "cdc-essentials-parenting-toddlers-preschoolers",
+      "title": "Essentials for Parenting Toddlers and Preschoolers",
+      "organization": "Centers for Disease Control and Prevention",
+      "group": "early-education",
+      "domain": "early-education",
+      "evidenceLevel": "public-health-guidance",
+      "useFor": [
+        "2-4岁正向养育",
+        "亲子关系",
+        "积极沟通和清晰指令",
+        "规则、后果和行为支持"
+      ],
+      "url": "https://www.cdc.gov/parenting-toddlers/about/index.html",
+      "accessDate": "2026-05-08",
+      "status": "active"
+    },
+    {
+      "id": "moe-3-6-learning-development-guidelines",
+      "title": "教育部关于印发《3-6岁儿童学习与发展指南》的通知",
+      "organization": "中华人民共和国教育部",
+      "group": "early-education",
+      "domain": "early-education",
+      "evidenceLevel": "guideline",
+      "useFor": [
+        "3-6岁学前儿童学习与发展",
+        "科学保教",
+        "语言、社会、科学、艺术和健康领域",
+        "反对超前教育和强化训练"
+      ],
+      "url": "https://www.moe.gov.cn/srcsite/A06/s3327/201210/t20121009_143254.html",
       "accessDate": "2026-05-08",
       "status": "active"
     },
