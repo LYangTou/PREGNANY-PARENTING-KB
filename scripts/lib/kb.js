@@ -1,7 +1,28 @@
 const fs = require("fs");
 const path = require("path");
 
-const rootDir = path.resolve(__dirname, "..", "..");
+function hasProjectData(dir) {
+  return (
+    fs.existsSync(path.join(dir, "sources", "source_registry.json")) &&
+    fs.existsSync(path.join(dir, "schemas", "enums.json")) &&
+    fs.existsSync(path.join(dir, "cards"))
+  );
+}
+
+function findRootDir(startDir) {
+  let current = path.resolve(startDir);
+  while (true) {
+    if (hasProjectData(current)) return current;
+    const parent = path.dirname(current);
+    if (parent === current) return null;
+    current = parent;
+  }
+}
+
+const rootDir =
+  findRootDir(process.env.KB_ROOT_DIR || process.cwd()) ||
+  findRootDir(__dirname) ||
+  path.resolve(__dirname, "..", "..");
 const sourceRegistryPath = path.join(rootDir, "sources", "source_registry.json");
 const enumsPath = path.join(rootDir, "schemas", "enums.json");
 const sourceCacheDir = path.join(rootDir, "sources", "cache");

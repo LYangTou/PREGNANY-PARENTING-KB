@@ -1,4 +1,4 @@
-import { jsonError, streamAgentAnswer } from "../../../../lib/kb-service.js";
+import { apiError } from "../../../../lib/api-error.js";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -11,6 +11,7 @@ export async function POST(request) {
   const encoder = new TextEncoder();
 
   try {
+    const { streamAgentAnswer, jsonError } = await import("../../../../lib/kb-service.js");
     const body = await request.json();
     const stream = new ReadableStream({
       async start(controller) {
@@ -33,6 +34,6 @@ export async function POST(request) {
       }
     });
   } catch (error) {
-    return Response.json(jsonError(error), { status: error.statusCode || 500 });
+    return Response.json(apiError(error), { status: error.statusCode || 500 });
   }
 }

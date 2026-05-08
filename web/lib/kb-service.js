@@ -3,12 +3,26 @@ import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
 
-import { ChatDeepSeek } from "@langchain/deepseek";
-
 import { badgeText, labelAliases } from "./labels.js";
 
-const require = createRequire(import.meta.url);
-const kb = require("../../scripts/lib/kb.js");
+function findProjectRoot(startDir) {
+  let current = path.resolve(startDir);
+  while (true) {
+    if (
+      fs.existsSync(path.join(current, "package.json")) &&
+      fs.existsSync(path.join(current, "scripts", "lib", "kb.js"))
+    ) {
+      return current;
+    }
+    const parent = path.dirname(current);
+    if (parent === current) return path.resolve(startDir);
+    current = parent;
+  }
+}
+
+const projectRoot = findProjectRoot(process.cwd());
+const requireFromProject = createRequire(path.join(projectRoot, "package.json"));
+const kb = requireFromProject("./scripts/lib/kb.js");
 
 const {
   cardSearchText,
@@ -713,6 +727,7 @@ export async function streamAgentAnswer({ question, filters = {} }, send) {
     return;
   }
 
+  const { ChatDeepSeek } = await import("@langchain/deepseek");
   const llm = new ChatDeepSeek({
     apiKey: process.env.DEEPSEEK_API_KEY,
     model: modelConfig.model,
