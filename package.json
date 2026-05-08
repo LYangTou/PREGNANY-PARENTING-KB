@@ -12,7 +12,8 @@
     "review:card": "node scripts/run.js review-card",
     "web:api": "node scripts/run.js web-server",
     "web:dev": "concurrently -k -n api,web \"node scripts/run.js web-server\" \"vite --host 127.0.0.1\"",
-    "web:build": "vite build"
+    "web:build": "npm run web:static-data && vite build",
+    "web:static-data": "node scripts/run.js generate-web-static-data"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
