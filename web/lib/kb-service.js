@@ -82,11 +82,13 @@ export function jsonError(error) {
 }
 
 export function getAgentConfig() {
+  const timeoutMs = Number(process.env.DEEPSEEK_TIMEOUT_MS || 50000);
   return {
     configured: Boolean(process.env.DEEPSEEK_API_KEY),
-    model: process.env.DEEPSEEK_MODEL || "deepseek-v4-pro",
-    thinking: true,
-    reasoningEffort: process.env.DEEPSEEK_REASONING_EFFORT || "high"
+    model: process.env.DEEPSEEK_MODEL || "deepseek-v4-flash",
+    thinking: process.env.DEEPSEEK_THINKING === "true",
+    reasoningEffort: process.env.DEEPSEEK_REASONING_EFFORT || "medium",
+    timeoutMs: Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 50000
   };
 }
 
@@ -666,6 +668,35 @@ function chunkText(content) {
   return "";
 }
 
+function timeoutError(timeoutMs) {
+  return new HttpError(
+    504,
+    `Agent 生成超过 ${Math.round(timeoutMs / 1000)} 秒，已主动停止。请稍后重试，或在 Vercel 环境变量中使用更快的 DEEPSEEK_MODEL / 较低的 DEEPSEEK_REASONING_EFFORT。`
+  );
+}
+
+function withDeadline(promise, deadlineAt, abortController, timeoutMs) {
+  const remaining = deadlineAt - Date.now();
+  if (remaining <= 0) {
+    abortController.abort();
+    return Promise.reject(timeoutError(timeoutMs));
+  }
+
+  let timeoutId;
+  const timeoutPromise = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => {
+      abortController.abort();
+      reject(timeoutError(timeoutMs));
+    }, remaining);
+  });
+
+  return Promise.race([promise, timeoutPromise]).finally(() => clearTimeout(timeoutId));
+}
+
+function nextWithDeadline(iterator, deadlineAt, abortController, timeoutMs) {
+  return withDeadline(iterator.next(), deadlineAt, abortController, timeoutMs);
+}
+
 export async function streamAgentAnswer({ question, filters = {} }, send) {
   const cleanQuestion = String(question || "").trim();
   if (!cleanQuestion) throw new HttpError(400, "question is required");
@@ -695,7 +726,8 @@ export async function streamAgentAnswer({ question, filters = {} }, send) {
     model: modelConfig.model,
     configured: modelConfig.configured,
     thinking: modelConfig.thinking,
-    reasoningEffort: modelConfig.reasoningEffort
+    reasoningEffort: modelConfig.reasoningEffort,
+    timeoutMs: modelConfig.timeoutMs
   });
 
   if (!search.results.length) {
@@ -709,20 +741,25 @@ export async function streamAgentAnswer({ question, filters = {} }, send) {
   }
 
   const { ChatDeepSeek } = await import("@langchain/deepseek");
+  const abortController = new AbortController();
   const llm = new ChatDeepSeek({
     apiKey: process.env.DEEPSEEK_API_KEY,
     model: modelConfig.model,
     streaming: true,
     maxTokens: 2200,
     reasoningEffort: modelConfig.reasoningEffort,
-    modelKwargs: {
-      thinking: { type: "enabled" }
-    }
+    ...(modelConfig.thinking ? { modelKwargs: { thinking: { type: "enabled" } } } : {})
   });
 
   const prompt = buildAgentPrompt(cleanQuestion, search.results, search.retrievalPlan);
-  for await (const chunk of await llm.stream(prompt)) {
-    const text = chunkText(chunk.content);
+  const deadlineAt = Date.now() + modelConfig.timeoutMs;
+  const stream = await withDeadline(llm.stream(prompt, { signal: abortController.signal }), deadlineAt, abortController, modelConfig.timeoutMs);
+  const iterator = stream[Symbol.asyncIterator]();
+
+  while (true) {
+    const { value, done } = await nextWithDeadline(iterator, deadlineAt, abortController, modelConfig.timeoutMs);
+    if (done) break;
+    const text = chunkText(value.content);
     if (text) send("token", { text });
   }
 }

@@ -129,6 +129,14 @@ function audienceText(value) {
   }[value] || "家庭";
 }
 
+function readableAgentError(error) {
+  const message = error instanceof Error ? error.message : String(error || "");
+  if (/network error|failed to fetch|err_connection_reset/i.test(message)) {
+    return "Agent 连接被中断，通常是线上函数在生成答案时超过平台时限或上游模型响应太慢。请稍后重试，或改用更快的模型配置。";
+  }
+  return message || "Agent 请求失败";
+}
+
 export default function AgentPage() {
   const [status, setStatus] = useState(null);
   const [filters, setFilters] = useState(initialFilters);
@@ -236,7 +244,7 @@ export default function AgentPage() {
       }
       setCurrentAnswer("");
     } catch (err) {
-      if (err.name !== "AbortError") setError(err instanceof Error ? err.message : String(err));
+      if (err.name !== "AbortError") setError(readableAgentError(err));
     } finally {
       abortRef.current = null;
       setLoading(false);
