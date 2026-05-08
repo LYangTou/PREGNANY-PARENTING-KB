@@ -82,13 +82,13 @@ export function jsonError(error) {
 }
 
 export function getAgentConfig() {
-  const timeoutMs = Number(process.env.DEEPSEEK_TIMEOUT_MS || 50000);
+  const timeoutMs = Number(process.env.DEEPSEEK_TIMEOUT_MS || 240000);
   return {
     configured: Boolean(process.env.DEEPSEEK_API_KEY),
     model: process.env.DEEPSEEK_MODEL || "deepseek-v4-flash",
     thinking: process.env.DEEPSEEK_THINKING === "true",
     reasoningEffort: process.env.DEEPSEEK_REASONING_EFFORT || "medium",
-    timeoutMs: Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 50000
+    timeoutMs: Number.isFinite(timeoutMs) && timeoutMs > 0 ? timeoutMs : 240000
   };
 }
 

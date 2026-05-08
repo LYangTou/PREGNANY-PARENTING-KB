@@ -2,6 +2,7 @@ import { apiError } from "../../../../lib/api-error.js";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const maxDuration = 300;
 
 function sse(event, payload) {
   return `event: ${event}\ndata: ${JSON.stringify(payload)}\n\n`;
