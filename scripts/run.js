@@ -11,11 +11,9 @@ const commands = {
   "review-card": "review-card.ts",
   "search-cards": "search-cards.ts",
   "kb-workflow": "kb-workflow.ts",
-  "web-server": "web-server.ts",
   "extract-sources": "extract-sources.ts",
   "batch-generate": "batch-generate.ts",
-  "quality-scan": "quality-scan.ts",
-  "generate-web-static-data": "generate-web-static-data.ts"
+  "quality-scan": "quality-scan.ts"
 };
 
 const command = process.argv[2];

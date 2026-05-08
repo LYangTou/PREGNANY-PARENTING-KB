@@ -2,3 +2,4 @@ node_modules/
 dist/
 *.log
 web/public/kb-static.json
+web/.next/
