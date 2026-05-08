@@ -1,6 +1,6 @@
 # 家庭孕育知识库
 
-本项目用于本地整理家庭孕育知识卡片，覆盖孕产医学保健、0-3 岁育儿、妈妈情绪支持、爸爸任务、母婴用品避坑和家庭记录归档。
+本项目用于本地整理家庭孕育知识卡片，覆盖孕产医学保健、0-3 岁育儿、妈妈情绪支持、爸爸任务、母婴用品避坑和家庭记录归档。 记录
 
 ## 基本规则
 
@@ -26,7 +26,6 @@ npm run search -- --query "安全睡眠"
 npm run review:card -- <card-id-or-draft-json-path> --dry-run
 npm run review:card -- <card-id-or-draft-json-path>
 ```
-
 
 ## GitHub Pages 预览
 
