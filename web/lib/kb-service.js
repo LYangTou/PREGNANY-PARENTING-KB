@@ -1,30 +1,9 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import { createRequire } from "node:module";
 
 import { badgeText, labelAliases } from "./labels.js";
-
-function loadKbModule() {
-  const cwd = process.cwd();
-  const candidates = [
-    path.join(cwd, "scripts", "lib", "kb.js"),
-    path.join(cwd, "..", "scripts", "lib", "kb.js"),
-    path.join(cwd, "..", "..", "scripts", "lib", "kb.js"),
-    path.resolve("scripts", "lib", "kb.js"),
-    path.resolve("..", "scripts", "lib", "kb.js")
-  ];
-
-  for (const candidate of candidates) {
-    if (fs.existsSync(candidate)) {
-      return createRequire(candidate)(candidate);
-    }
-  }
-
-  throw new Error(`Cannot locate scripts/lib/kb.js from ${cwd}`);
-}
-
-const kb = loadKbModule();
+import * as kb from "./kb-runtime.js";
 
 const {
   cardSearchText,
