@@ -1,0 +1,48 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - paragraph [ref=e5]: cards/drafts 审核
+        - heading "知识库审核台" [level=1] [ref=e6]
+        - paragraph [ref=e7]: 只在人工确认后把 draft 迁移到 reviewed；问答不会使用 draft。
+      - navigation "主导航" [ref=e8]:
+        - link "审核" [ref=e9] [cursor=pointer]:
+          - /url: /review
+        - link "Agent 对话" [ref=e10] [cursor=pointer]:
+          - /url: /agent
+    - region "项目状态" [ref=e11]:
+      - generic [ref=e12]:
+        - strong [ref=e13]: "0"
+        - text: 已登记来源
+      - generic [ref=e14]:
+        - strong [ref=e15]: "-"
+        - text: 草稿卡片
+      - generic [ref=e16]:
+        - strong [ref=e17]: "-"
+        - text: 已审核卡片
+      - generic [ref=e18]:
+        - strong [ref=e19]: "-"
+        - text: reviewed JSON
+    - main [ref=e20]:
+      - complementary [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - text: 知识域
+            - combobox "知识域" [ref=e24]:
+              - option "全部" [selected]
+          - generic [ref=e25]:
+            - text: 阶段
+            - combobox "阶段" [ref=e26]:
+              - option "全部" [selected]
+          - generic [ref=e27]:
+            - text: 分类
+            - combobox "分类" [ref=e28]:
+              - option "全部" [selected]
+          - generic [ref=e29]:
+            - text: 审核状态
+            - combobox "审核状态" [ref=e30]:
+              - option "全部" [selected]
+        - generic "Draft 卡片列表" [ref=e31]:
+          - paragraph [ref=e32]: 没有匹配的 draft 卡片。
+      - paragraph [ref=e34]: 选择一张 draft 卡片开始审核。
+  - alert [ref=e35]

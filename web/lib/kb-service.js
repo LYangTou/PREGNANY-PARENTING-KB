@@ -5,24 +5,26 @@ import { createRequire } from "node:module";
 
 import { badgeText, labelAliases } from "./labels.js";
 
-function findProjectRoot(startDir) {
-  let current = path.resolve(startDir);
-  while (true) {
-    if (
-      fs.existsSync(path.join(current, "package.json")) &&
-      fs.existsSync(path.join(current, "scripts", "lib", "kb.js"))
-    ) {
-      return current;
+function loadKbModule() {
+  const cwd = process.cwd();
+  const candidates = [
+    path.join(cwd, "scripts", "lib", "kb.js"),
+    path.join(cwd, "..", "scripts", "lib", "kb.js"),
+    path.join(cwd, "..", "..", "scripts", "lib", "kb.js"),
+    path.resolve("scripts", "lib", "kb.js"),
+    path.resolve("..", "scripts", "lib", "kb.js")
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return createRequire(candidate)(candidate);
     }
-    const parent = path.dirname(current);
-    if (parent === current) return path.resolve(startDir);
-    current = parent;
   }
+
+  throw new Error(`Cannot locate scripts/lib/kb.js from ${cwd}`);
 }
 
-const projectRoot = findProjectRoot(process.cwd());
-const requireFromProject = createRequire(path.join(projectRoot, "package.json"));
-const kb = requireFromProject("./scripts/lib/kb.js");
+const kb = loadKbModule();
 
 const {
   cardSearchText,
