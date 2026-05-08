@@ -394,10 +394,19 @@ textarea {
 }
 
 .agent-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-  gap: 16px;
+  display: block;
   padding: 0 28px 28px;
+}
+
+.agent-grid .chat-panel {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.mobile-chat-head {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
 }
 
 .chat-form {
@@ -463,7 +472,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  margin: 8px 0 12px;
+  margin: 0;
   border: 1px solid #b7d8dc;
   border-radius: 999px;
   background: #ecf8f8;
@@ -483,6 +492,68 @@ textarea {
   vertical-align: -2px;
 }
 
+.evidence-drawer {
+  position: fixed;
+  z-index: 30;
+  right: 18px;
+  bottom: 78px;
+  width: min(460px, calc(100vw - 32px));
+  max-height: min(72vh, 680px);
+  overflow: auto;
+  transform: translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.evidence-drawer[hidden] {
+  display: none;
+}
+
+.evidence-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.evidence-head {
+  position: sticky;
+  z-index: 1;
+  top: -18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin: -18px -18px 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  padding: 12px 18px;
+}
+
+.evidence-head h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.evidence-backdrop {
+  position: fixed;
+  z-index: 29;
+  inset: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  background: rgba(23, 33, 43, 0.18);
+  padding: 0;
+}
+
+.evidence-fab {
+  position: fixed;
+  z-index: 28;
+  right: 18px;
+  bottom: 18px;
+  box-shadow: var(--shadow);
+}
+
 @media (max-width: 940px) {
   .topbar,
   .detail-head {
@@ -492,9 +563,79 @@ textarea {
 
   .status-grid,
   .workbench,
-  .agent-grid,
   .checks,
   .toolbar {
     grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    padding: 16px 14px 10px;
+  }
+
+  .topbar h1 {
+    font-size: 28px;
+  }
+
+  .tabs a {
+    flex: 1;
+    text-align: center;
+  }
+
+  .status-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0 14px 12px;
+  }
+
+  .status-grid div {
+    padding: 10px 12px;
+  }
+
+  .status-grid strong {
+    font-size: 18px;
+  }
+
+  .agent-grid {
+    padding: 0 10px 86px;
+  }
+
+  .chat-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .mobile-chat-head {
+    order: 1;
+  }
+
+  .messages {
+    order: 2;
+  }
+
+  .chat-form {
+    order: 4;
+    margin: 12px 0 0;
+  }
+
+  .chat-panel > .scope,
+  .chat-panel > .alert {
+    order: 3;
+  }
+
+  textarea {
+    min-height: 86px;
+  }
+
+  .evidence-drawer {
+    right: 10px;
+    bottom: 74px;
+    width: calc(100vw - 20px);
+    max-height: 70vh;
+    border-radius: 8px;
+  }
+
+  .evidence-fab {
+    right: 12px;
+    bottom: 12px;
   }
 }

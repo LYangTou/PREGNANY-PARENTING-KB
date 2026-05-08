@@ -146,6 +146,7 @@ export default function AgentPage() {
   const [evidence, setEvidence] = useState([]);
   const [retrievalPlan, setRetrievalPlan] = useState(null);
   const [safetyNotice, setSafetyNotice] = useState("");
+  const [evidenceOpen, setEvidenceOpen] = useState(false);
   const [model, setModel] = useState("deepseek-v4-pro");
   const [thinking, setThinking] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -174,6 +175,7 @@ export default function AgentPage() {
     setEvidence([]);
     setRetrievalPlan(null);
     setSafetyNotice("");
+    setEvidenceOpen(false);
     setError("");
     setLoading(true);
     setLoadingLabel("检索中...");
@@ -266,6 +268,7 @@ export default function AgentPage() {
     setEvidence([]);
     setRetrievalPlan(null);
     setSafetyNotice("");
+    setEvidenceOpen(false);
     setError("");
   }
 
@@ -294,6 +297,12 @@ export default function AgentPage() {
 
       <main className="agent-grid">
         <section className="chat-panel">
+          <div className="mobile-chat-head">
+            <button type="button" onClick={() => setEvidenceOpen(true)} disabled={!evidence.length && !retrievalPlan}>
+              检索证据{evidence.length ? ` ${evidence.length}` : ""}
+            </button>
+          </div>
+
           <form className="chat-form" onSubmit={askAgent}>
             <label>
               问题
@@ -314,7 +323,6 @@ export default function AgentPage() {
           </form>
 
           <p className="scope">回答范围：仅 cards/reviewed/。drafts 和 family-records 不参与检索。</p>
-          {loadingLabel ? <p className="loading-state">{loadingLabel}</p> : null}
           {safetyNotice ? <p className="alert warning">{safetyNotice}</p> : null}
 
           <div className="messages">
@@ -325,6 +333,12 @@ export default function AgentPage() {
                 {message.role === "assistant" ? <MarkdownRenderer content={message.content} /> : <pre>{message.content}</pre>}
               </article>
             ))}
+            {loading && !currentAnswer ? (
+              <article className="message assistant">
+                <strong>Agent</strong>
+                <p className="loading-state">{loadingLabel || "生成中..."}</p>
+              </article>
+            ) : null}
             {currentAnswer ? (
               <article className="message assistant">
                 <strong>Agent</strong>
@@ -336,8 +350,12 @@ export default function AgentPage() {
           </div>
         </section>
 
-        <aside className="evidence-panel">
-          <h2>检索证据</h2>
+        {evidenceOpen ? <button className="evidence-backdrop" type="button" aria-label="Close evidence" onClick={() => setEvidenceOpen(false)} /> : null}
+        <aside className={`evidence-panel evidence-drawer ${evidenceOpen ? "open" : ""}`} hidden={!evidenceOpen}>
+          <div className="evidence-head">
+            <h2>检索证据</h2>
+            <button type="button" onClick={() => setEvidenceOpen(false)}>关闭</button>
+          </div>
           <p className="scope">每次提问只展示本次命中的 reviewed 卡片和来源。</p>
           {retrievalPlan ? (
             <div className="retrieval-plan">
@@ -372,6 +390,9 @@ export default function AgentPage() {
             )) : <p className="empty">暂无检索结果。</p>}
           </div>
         </aside>
+        <button className="evidence-fab" type="button" onClick={() => setEvidenceOpen(true)} disabled={!evidence.length && !retrievalPlan}>
+          证据{evidence.length ? ` ${evidence.length}` : ""}
+        </button>
       </main>
     </div>
   );

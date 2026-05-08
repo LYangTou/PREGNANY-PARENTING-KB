@@ -599,6 +599,27 @@ function audienceSummary(results) {
     .join("；") || "无";
 }
 
+function promptResultsForAudience(results, retrievalPlan) {
+  const audiences = retrievalPlan.requestedAudiences || [];
+  if (audiences.length !== 1) return results;
+  const requested = audiences[0];
+  return results.filter((result) => cardAudience(result.card) === requested);
+}
+
+function answerModeFor(retrievalPlan) {
+  const audiences = retrievalPlan.requestedAudiences || [];
+  if (audiences.length !== 1) {
+    return "多角色或未指定身份：可以按妈妈/孕妇、爸爸/伴侣、共同事项等角色分区回答。";
+  }
+  if (audiences[0] === "father") {
+    return "单一身份：爸爸/伴侣。只回答爸爸/伴侣应该做什么，不要输出妈妈/孕妇小节，不要写妈妈应该做什么。";
+  }
+  if (audiences[0] === "mother") {
+    return "单一身份：妈妈/孕妇。只回答妈妈/孕妇应该做什么，不要输出爸爸/伴侣小节，不要写爸爸应该做什么。";
+  }
+  return `单一身份：${audiences[0]}。只回答该身份相关内容，不要扩展到其他身份。`;
+}
+
 function takeItems(items, limit) {
   return Array.isArray(items) ? items.filter(Boolean).slice(0, limit) : [];
 }
@@ -629,10 +650,13 @@ export function buildAgentPrompt(question, results, retrievalPlan) {
     {
       role: "system",
       content: [
+        "If retrievalPlan.requestedAudiences contains only father, answer only for the father/partner role. Do not include a mother/pregnant-woman section or mother tasks.",
+        "If retrievalPlan.requestedAudiences contains only mother, answer only for the mother/pregnant-woman role. Do not include a father/partner section.",
+        "Only split the answer by multiple roles when requestedAudiences is empty or includes multiple roles. A single-audience query must produce a single-audience answer.",
         "你是家庭孕育知识库的本地问答助手。",
         "你只能依据用户提供的 reviewed 卡片上下文回答，不得使用模型常识自由扩展医学、心理、用药、疫苗、疾病或婴儿安全结论。",
         "回答必须包含引用：写出使用到的 cardId 和 sourceId。",
-        "当用户问“应该干什么、注意什么、怎么安排”且问题属于孕期时，必须按角色分区回答：妈妈/孕妇应该做什么、爸爸/伴侣应该做什么、共同注意事项/何时求助。",
+        "当用户问“应该干什么、注意什么、怎么安排”且问题属于孕期，并且检索规划没有限定单一身份时，才按角色分区回答：妈妈/孕妇应该做什么、爸爸/伴侣应该做什么、共同注意事项/何时求助。",
         "只能把 audience=mother 的卡片用于妈妈/孕妇部分，把 audience=father 的卡片用于爸爸/伴侣部分；audience=joint 或 family 只能放到共同事项。",
         "如果某个角色没有 reviewed 卡片支持，要在该角色小节写“当前知识库资料不足”，不能用模型常识补齐。",
         "每个角色小节只保留 2-4 条高优先级动作，避免逐字复述卡片全文。",
@@ -649,6 +673,7 @@ export function buildAgentPrompt(question, results, retrievalPlan) {
       content: [
         `用户问题：${question}`,
         `检索规划：${JSON.stringify(retrievalPlan)}`,
+        `回答模式：${answerModeFor(retrievalPlan)}`,
         `上下文角色覆盖：${audienceSummary(results)}`,
         `reviewed 卡片上下文：\n${context}`
       ].join("\n\n")
@@ -740,6 +765,12 @@ export async function streamAgentAnswer({ question, filters = {} }, send) {
     return;
   }
 
+  const promptResults = promptResultsForAudience(search.results, search.retrievalPlan);
+  if (!promptResults.length) {
+    send("token", { text: "当前知识库资料不足。" });
+    return;
+  }
+
   const { ChatDeepSeek } = await import("@langchain/deepseek");
   const abortController = new AbortController();
   const llm = new ChatDeepSeek({
@@ -751,7 +782,7 @@ export async function streamAgentAnswer({ question, filters = {} }, send) {
     ...(modelConfig.thinking ? { modelKwargs: { thinking: { type: "enabled" } } } : {})
   });
 
-  const prompt = buildAgentPrompt(cleanQuestion, search.results, search.retrievalPlan);
+  const prompt = buildAgentPrompt(cleanQuestion, promptResults, search.retrievalPlan);
   const deadlineAt = Date.now() + modelConfig.timeoutMs;
   const stream = await withDeadline(llm.stream(prompt, { signal: abortController.signal }), deadlineAt, abortController, modelConfig.timeoutMs);
   const iterator = stream[Symbol.asyncIterator]();
