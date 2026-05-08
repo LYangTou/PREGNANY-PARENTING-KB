@@ -27,6 +27,19 @@ npm run review:card -- <card-id-or-draft-json-path> --dry-run
 npm run review:card -- <card-id-or-draft-json-path>
 ```
 
+
+## GitHub Pages 预览
+
+本项目可以部署一个只读 Web 预览，方便先在 GitHub Pages 上试用。
+
+- GitHub Actions 工作流：`.github/workflows/pages.yml`。
+- 构建命令：`npm run web:build`，会先生成 `web/public/kb-static.json` 静态数据，再执行 Vite 构建。
+- 部署产物：`dist/web/`。
+- Pages 预览为只读模式：可以浏览 draft、查询 reviewed，但不能执行审核写入。
+- 查询功能仍只使用 `cards/reviewed/`；drafts 仅用于审核预览，不作为问答依据。
+
+首次启用时，在 GitHub 仓库 Settings → Pages 中选择 “GitHub Actions” 作为 Build and deployment Source，然后手动运行或推送到 `main` 触发 `Deploy Web Preview to GitHub Pages`。
+
 ## 串联流程
 
 1. 在 `sources/source_registry.json` 登记或确认来源。

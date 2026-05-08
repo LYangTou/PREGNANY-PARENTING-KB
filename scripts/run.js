@@ -14,7 +14,8 @@ const commands = {
   "web-server": "web-server.ts",
   "extract-sources": "extract-sources.ts",
   "batch-generate": "batch-generate.ts",
-  "quality-scan": "quality-scan.ts"
+  "quality-scan": "quality-scan.ts",
+  "generate-web-static-data": "generate-web-static-data.ts"
 };
 
 const command = process.argv[2];
